@@ -111,6 +111,18 @@ function VideoCarousel() {
 }
 
 export default function Home() {
+  // Añadir estado para controlar la facturación anual/mensual
+  const [isAnnualBilling, setIsAnnualBilling] = useState(false)
+  
+  // Función para calcular el precio con descuento
+  const getDiscountedPrice = (price: number) => {
+    if (isAnnualBilling) {
+      // Aplicar descuento del 15% para facturación anual
+      return (price * 0.85).toLocaleString('es-AR')
+    }
+    return price.toLocaleString('es-AR')
+  }
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header/Navigation - Updated to #000000 background */}
@@ -183,20 +195,20 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black"></div>
         </div>
 
-        <div className="container mx-auto px-6 md:px-12 lg:px-24 z-10 text-center">
+        <div className="container mx-auto px-6 md:px-12 lg:px-24 z-10 text-center md:text-center">
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="inline-block px-4 py-1 rounded-full bg-red-500/10 text-red-500 text-sm font-medium mb-4">
               Digital Marketing Experts
             </div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left md:text-center">
               Potencia tu presencia
               <br />
               en redes sociales
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-2xl mx-auto text-left md:text-center">
               Transformamos tu marca con estrategias digitales innovadoras y contenido de alto impacto
             </p>
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-start md:justify-center">
               <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 rounded-xl text-lg font-medium">
                 VER TIENDA
               </Button>
@@ -207,7 +219,7 @@ export default function Home() {
                 SUMATE AL EQUIPO!
               </Button>
             </div>
-            <p className="text-xl mt-8">
+            <p className="text-xl mt-8 text-left md:text-center">
               <span className="text-zinc-400">Packs de contenido desde </span>
               <span className="text-white font-bold">$199.999 ARS</span>
             </p>
@@ -236,11 +248,11 @@ export default function Home() {
               <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium mb-4">
                 Contenido Digital
               </div>
-              <h3 className="text-red-500 font-bold mb-2 text-xl">Reels</h3>
-              <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+              <h3 className="text-red-500 font-bold mb-2 text-xl text-left">Reels</h3>
+              <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left">
                 De baja complejidad
               </h2>
-              <p className="text-zinc-400 mb-8 text-lg leading-relaxed">
+              <p className="text-zinc-400 mb-8 text-lg leading-relaxed text-left">
                 Estos reels están diseñados para transmitir un mensaje de manera rápida y efectiva, con un enfoque en la
                 simplicidad. Utilizan elementos visuales y efectos básicos, fáciles de crear, pero que mantienen el
                 interés del espectador. Son ideales para quienes buscan una producción ágil y accesible sin sacrificar
@@ -297,27 +309,37 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="text-center md:text-center mb-16 max-w-3xl mx-auto">
             <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium mb-4">
               INVERSIÓN ESTRATÉGICA
             </div>
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left md:text-center">
               Potencia tu marca con nuestros planes
             </h2>
-            <p className="text-zinc-400 text-lg mb-8">
+            <p className="text-zinc-400 text-lg mb-8 text-left md:text-center">
               No vendemos servicios, creamos experiencias digitales que transforman seguidores en comunidades y visitas
               en ventas. Elige el plan que mejor se adapte a tus objetivos.
             </p>
 
-            <div className="flex justify-center space-x-2 mb-12">
+            <div className="flex justify-start md:justify-center space-x-2 mb-12">
               <span className="text-zinc-400">Facturación:</span>
               <div className="relative inline-flex items-center p-1 rounded-full bg-zinc-800/50 backdrop-blur-sm">
-                <button className="relative z-10 px-3 py-1 text-sm rounded-full bg-red-600 text-white font-medium">
+                <button 
+                  onClick={() => setIsAnnualBilling(false)}
+                  className={`relative z-10 px-3 py-1 text-sm rounded-full ${!isAnnualBilling ? 'bg-red-600 text-white' : 'text-zinc-400'} font-medium transition-colors`}
+                >
                   Mensual
                 </button>
-                <button className="px-3 py-1 text-sm rounded-full text-zinc-400">Anual</button>
+                <button 
+                  onClick={() => setIsAnnualBilling(true)}
+                  className={`px-3 py-1 text-sm rounded-full ${isAnnualBilling ? 'bg-red-600 text-white' : 'text-zinc-400'} transition-colors`}
+                >
+                  Anual
+                </button>
               </div>
-              <span className="text-red-500 text-sm font-medium flex items-center">Ahorra 15%</span>
+              <span className={`text-red-500 text-sm font-medium flex items-center ${isAnnualBilling ? 'opacity-100' : 'opacity-0'} transition-opacity`}>
+                Ahorra 15%
+              </span>
             </div>
           </div>
 
@@ -341,10 +363,12 @@ export default function Home() {
 
                   <div className="mb-6">
                     <div className="flex items-end">
-                      <span className="text-4xl font-bold text-white">$599.999</span>
-                      <span className="text-zinc-500 ml-2 mb-1">/mes</span>
+                      <span className="text-4xl font-bold text-white">${getDiscountedPrice(599999)}</span>
+                      <span className="text-zinc-500 ml-2 mb-1">/{isAnnualBilling ? 'año' : 'mes'}</span>
                     </div>
-                    <p className="text-zinc-500 text-sm mt-1">Facturación mensual, sin compromiso</p>
+                    <p className="text-zinc-500 text-sm mt-1">
+                      Facturación {isAnnualBilling ? 'anual' : 'mensual'}, sin compromiso
+                    </p>
                   </div>
 
                   <Button className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors">
@@ -417,10 +441,12 @@ export default function Home() {
 
                   <div className="mb-6">
                     <div className="flex items-end">
-                      <span className="text-4xl font-bold text-white">$999.999</span>
-                      <span className="text-zinc-500 ml-2 mb-1">/mes</span>
+                      <span className="text-4xl font-bold text-white">${getDiscountedPrice(999999)}</span>
+                      <span className="text-zinc-500 ml-2 mb-1">/{isAnnualBilling ? 'año' : 'mes'}</span>
                     </div>
-                    <p className="text-zinc-500 text-sm mt-1">Facturación mensual, sin compromiso</p>
+                    <p className="text-zinc-500 text-sm mt-1">
+                      Facturación {isAnnualBilling ? 'anual' : 'mensual'}, sin compromiso
+                    </p>
                   </div>
 
                   <Button className="w-full py-6 bg-red-600 hover:bg-red-700 text-white transition-colors">
@@ -500,10 +526,12 @@ export default function Home() {
 
                   <div className="mb-6">
                     <div className="flex items-end">
-                      <span className="text-4xl font-bold text-white">$1.199.999</span>
-                      <span className="text-zinc-500 ml-2 mb-1">/mes</span>
+                      <span className="text-4xl font-bold text-white">${getDiscountedPrice(1199999)}</span>
+                      <span className="text-zinc-500 ml-2 mb-1">/{isAnnualBilling ? 'año' : 'mes'}</span>
                     </div>
-                    <p className="text-zinc-500 text-sm mt-1">Facturación mensual, sin compromiso</p>
+                    <p className="text-zinc-500 text-sm mt-1">
+                      Facturación {isAnnualBilling ? 'anual' : 'mensual'}, sin compromiso
+                    </p>
                   </div>
 
                   <Button className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors">
@@ -568,8 +596,8 @@ export default function Home() {
           <div className="mt-16 bg-zinc-900/30 backdrop-blur-sm border border-zinc-800 rounded-xl p-8 max-w-4xl mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">¿Necesitas algo más personalizado?</h3>
-                <p className="text-zinc-400">Creamos planes a medida para adaptarnos a tus necesidades específicas.</p>
+                <h3 className="text-xl font-bold text-white mb-2 text-left">¿Necesitas algo más personalizado?</h3>
+                <p className="text-zinc-400 text-left">Creamos planes a medida para adaptarnos a tus necesidades específicas.</p>
               </div>
               <Button className="whitespace-nowrap bg-red-600 hover:bg-red-700 text-white">
                 Contactar para plan personalizado
@@ -615,12 +643,12 @@ export default function Home() {
       <section className="py-24 bg-zinc-900 relative">
         <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-black to-transparent"></div>
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center md:text-center mb-16">
             <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium mb-4">
               Portfolio
             </div>
-            <p className="text-red-500 mb-2 text-lg">Proyectos</p>
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+            <p className="text-red-500 mb-2 text-lg text-left md:text-center">Proyectos</p>
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left md:text-center">
               Para nuestros clientes
             </h2>
           </div>
@@ -717,9 +745,9 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="text-center mt-20">
-            <p className="mb-2 text-zinc-400">Explora nuestros últimos proyectos WEBS</p>
-            <h3 className="text-xl font-bold text-red-500">GALERIA WEB</h3>
+          <div className="text-center md:text-center mt-20">
+            <p className="mb-2 text-zinc-400 text-left md:text-center">Explora nuestros últimos proyectos WEBS</p>
+            <h3 className="text-xl font-bold text-red-500 text-left md:text-center">GALERIA WEB</h3>
           </div>
         </div>
       </section>
@@ -727,15 +755,15 @@ export default function Home() {
       {/* Process Section */}
       <section className="py-24 bg-black relative overflow-hidden">
         <div className="absolute -top-40 -left-40 w-80 h-80 bg-red-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-red-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-red-500/5 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center md:text-center mb-16">
             <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium mb-4">
               Metodología
             </div>
-            <p className="text-red-500 mb-2 text-lg">¿Como lo hacemos?</p>
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+            <p className="text-red-500 mb-2 text-lg text-left md:text-center">¿Como lo hacemos?</p>
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left md:text-center">
               Nuestro Proceso
             </h2>
           </div>
@@ -745,10 +773,10 @@ export default function Home() {
               <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <span className="text-white text-2xl font-bold">1</span>
               </div>
-              <h3 className="text-xl font-bold mb-4 text-center group-hover:text-red-500 transition-colors">
+              <h3 className="text-xl font-bold mb-4 text-left md:text-center group-hover:text-red-500 transition-colors">
                 PLANIFICAMOS EL QUÉ
               </h3>
-              <p className="text-zinc-400 text-center">
+              <p className="text-zinc-400 text-left md:text-center">
                 Empezamos escuchando tus necesidades y a quién te diriges. Planificamos el contenido según el plan
                 elegido y, una vez aprobado, organizamos el calendario de grabación con una semana de anticipación.
               </p>
@@ -758,10 +786,10 @@ export default function Home() {
               <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <span className="text-white text-2xl font-bold">2</span>
               </div>
-              <h3 className="text-xl font-bold mb-4 text-center group-hover:text-red-500 transition-colors">
+              <h3 className="text-xl font-bold mb-4 text-left md:text-center group-hover:text-red-500 transition-colors">
                 HORA DE GRABAR
               </h3>
-              <p className="text-zinc-400 text-center">
+              <p className="text-zinc-400 text-left md:text-center">
                 Con la planificación lista, producimos el contenido. Usamos equipo de alta calidad para grabar en
                 jornadas de 4 horas, capturando todo el material necesario, ya sea fotografía o video.
               </p>
@@ -771,10 +799,10 @@ export default function Home() {
               <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <span className="text-white text-2xl font-bold">3</span>
               </div>
-              <h3 className="text-xl font-bold mb-4 text-center group-hover:text-red-500 transition-colors">
+              <h3 className="text-xl font-bold mb-4 text-left md:text-center group-hover:text-red-500 transition-colors">
                 SE COCINA Y DISTRIBUYE
               </h3>
-              <p className="text-zinc-400 text-center">
+              <p className="text-zinc-400 text-left md:text-center">
                 Editamos el contenido y lo distribuimos. Realizamos las correcciones necesarias, añadimos animaciones y
                 entregamos el material en 1080p Full HD. El contenido final se publica con su copy y calendario en
                 Notion.
@@ -807,10 +835,10 @@ export default function Home() {
               <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium mb-4">
                 Nuestro Equipo
               </div>
-              <h3 className="text-4xl font-bold mb-3 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+              <h3 className="text-4xl font-bold mb-3 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left">
                 Milagros Murillo
               </h3>
-              <p className="text-red-500 text-xl mb-6">Fundadora y CEO - @milimurilloo</p>
+              <p className="text-red-500 text-xl mb-6 text-left">Fundadora y CEO - @milimurilloo</p>
               <div className="flex flex-wrap gap-3 mb-6">
                 <div className="px-4 py-2 bg-zinc-800 rounded-lg">
                   <p className="text-sm text-white">Content Creator</p>
@@ -822,17 +850,17 @@ export default function Home() {
                   <p className="text-sm text-white">Community Manager</p>
                 </div>
               </div>
-              <p className="text-zinc-300 text-lg leading-relaxed mb-6">
+              <p className="text-zinc-300 text-lg leading-relaxed mb-6 text-left">
                 Desde hace años, me dedico a construir marcas con propósito en el mundo digital. Mi pasión por la
                 comunicación y el marketing me llevó a especializarme en estrategia digital, contenido creativo y
                 crecimiento de comunidades online.
               </p>
-              <p className="text-zinc-300 text-lg leading-relaxed mb-6">
+              <p className="text-zinc-300 text-lg leading-relaxed mb-6 text-left">
                 Como fundadora de Alpha Marketing Agency, ayudo a negocios, emprendedores y empresas a potenciar su
                 presencia en redes sociales con estrategia, creatividad y visión. Creo en el poder de que una marca bien
                 construida y un mensaje auténtico genera conexiones reales en el mundo digital.
               </p>
-              <p className="text-red-500 text-lg italic mb-6">
+              <p className="text-red-500 text-lg italic mb-6 text-left">
                 "Alpha no es solo una agencia, es el reflejo de mi pasión por el marketing y la comunicación."
               </p>
               <Button className="mt-4 bg-red-600 hover:bg-red-700 text-white px-8 py-3">Conoce al equipo</Button>
@@ -852,13 +880,13 @@ export default function Home() {
               <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium mb-4">
                 Contacto
               </div>
-              <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+              <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left">
                 Tienes alguna
                 <br />
                 pregunta?
               </h2>
-              <p className="text-red-500 text-xl mb-6">Te respondemos!</p>
-              <p className="text-zinc-400 mb-8 text-lg leading-relaxed">
+              <p className="text-red-500 text-xl mb-6 text-left">Te respondemos!</p>
+              <p className="text-zinc-400 mb-8 text-lg leading-relaxed text-left">
                 ¡Estamos aquí para ayudarte a impulsar tu negocio al siguiente nivel! Si estás listo para mejorar tu
                 presencia digital, aumentar tus ventas o simplemente llevar tu marca a más personas, no dudes en
                 contactarnos. llámanos o escríbenos, ¡estamos listos para escucharte!
@@ -868,7 +896,7 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
                     <span className="text-white text-lg">📍</span>
                   </div>
-                  <p className="text-zinc-300 group-hover:text-white transition-colors">
+                  <p className="text-zinc-300 group-hover:text-white transition-colors text-left">
                     Sarmiento, 717 Catamarca, ARG
                   </p>
                 </div>
@@ -876,12 +904,12 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
                     <Phone className="h-5 w-5 text-white" />
                   </div>
-                  <p className="text-zinc-300 group-hover:text-white transition-colors">+54 9 3834 93-2685</p>
+                  <p className="text-zinc-300 group-hover:text-white transition-colors text-left">+54 9 3834 93-2685</p>
                 </div>
               </div>
               <Button className="mt-8 bg-red-600 hover:bg-red-700 text-white px-8 py-3">Contáctanos</Button>
             </div>
-            <div className="md:w-1/2 flex justify-center">
+            <div className="md:w-1/2 flex justify-center hidden md:flex">
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-red-500 to-red-700 rounded-full opacity-20 blur-3xl"></div>
                 <div className="w-72 h-72 rounded-full bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center relative">
@@ -935,7 +963,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between">
-            <p className="text-sm text-zinc-500 mb-4 md:mb-0">
+            <p className="text-sm text-zinc-500 mb-4 md:mb-0 text-left">
               © {new Date().getFullYear()} Alpha Marketing Agency. Todos los derechos reservados.
             </p>
             <div className="flex space-x-6">
