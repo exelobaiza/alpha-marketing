@@ -10,13 +10,23 @@ import { useState, useEffect, useRef } from "react"
 function VideoCarousel() {
   const [currentVideo, setCurrentVideo] = useState(0)
   const [videoError, setVideoError] = useState(false)
-  const videoRefs = [useRef(null), useRef(null), useRef(null)]
+  const videoRefs = [
+    useRef<HTMLVideoElement>(null),
+    useRef<HTMLVideoElement>(null),
+    useRef<HTMLVideoElement>(null),
+    useRef<HTMLVideoElement>(null),
+    useRef<HTMLVideoElement>(null),
+    useRef<HTMLVideoElement>(null)
+  ]
 
   // Using the Discord CDN links provided
   const videos = [
     "https://media.discordapp.net/attachments/1102984847909203968/1349372624068808776/mili2.mp4?ex=67d2dcaf&is=67d18b2f&hm=b300efdcdcf3eab1dee86030cd7556da8e5820b2c35d6868498fe328cfbb50f2&",
     "https://media.discordapp.net/attachments/1102984847909203968/1349372625352261704/mili1.mp4?ex=67d2dcb0&is=67d18b30&hm=c3be8e073405708480b57973de0d6f7a6f22bef0caae8754755552e2c09343ac&",
     "https://media.discordapp.net/attachments/1102984847909203968/1349372624068808776/mili2.mp4?ex=67d2dcaf&is=67d18b2f&hm=b300efdcdcf3eab1dee86030cd7556da8e5820b2c35d6868498fe328cfbb50f2&",
+    "https://media.discordapp.net/attachments/1102984847909203968/1349372624756805796/mili3.mp4?ex=67d2dcaf&is=67d18b2f&hm=dbf8547bc6608ba2eeec4a09afea146f026caf4c3a377ad2451ad624499ef3ad&",
+    "https://media.discordapp.net/attachments/1102984847909203968/1349374377585545338/mili4.mp4?ex=67d2de51&is=67d18cd1&hm=9f76c0911661fb8673b1aa60216b966c33085590a5445f7115c16f122c45b15f&",
+    "https://media.discordapp.net/attachments/1102984847909203968/1349374378433052812/mili5.mp4?ex=67d2de51&is=67d18cd1&hm=e0ed35a5be27a5779944fd1a6693896897d30f19351ce2e3c6a277a269a92e76&"
   ]
 
   useEffect(() => {
@@ -45,7 +55,7 @@ function VideoCarousel() {
                 setCurrentVideo((prev) => (prev + 1) % videos.length)
               }, 4000)
             })
-            .catch((error) => {
+            .catch((error: unknown) => {
               console.error("Video play failed:", error)
               setVideoError(true)
               // Try next video if this one fails
