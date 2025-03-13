@@ -4,7 +4,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Alpha Marketing',
   description: 'Alpha Marketing Agency - Potencia tu presencia en redes sociales',
-  generator: 'v0.dev',
+  generator: 'exelobaiza',
 }
 
 export default function RootLayout({
