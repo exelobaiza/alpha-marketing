@@ -111,13 +111,21 @@ function VideoCarousel() {
 }
 
 export default function Home() {
-  // Añadir estado para controlar la facturación anual/mensual
+  // State for annual/monthly billing
   const [isAnnualBilling, setIsAnnualBilling] = useState(false)
   
-  // Función para calcular el precio con descuento
+  // State for mobile menu
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  
+  // Function to toggle mobile menu
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+  
+  // Function to calculate discounted price
   const getDiscountedPrice = (price: number) => {
     if (isAnnualBilling) {
-      // Aplicar descuento del 15% para facturación anual
+      // Apply 15% discount for annual billing
       return (price * 0.85).toLocaleString('es-AR')
     }
     return price.toLocaleString('es-AR')
@@ -140,13 +148,13 @@ export default function Home() {
             </Link>
           </div>
           <nav className="hidden md:flex space-x-6 uppercase text-sm font-medium">
-            <Link href="#" className="hover:text-red-500 transition-colors">
+            <Link href="/" className="hover:text-red-500 transition-colors">
               Inicio
             </Link>
-            <Link href="#" className="hover:text-red-500 transition-colors">
+            <Link href="#nosotros" className="hover:text-red-500 transition-colors">
               Nosotros
             </Link>
-            <Link href="#" className="hover:text-red-500 transition-colors">
+            <Link href="#planes" className="hover:text-red-500 transition-colors">
               Planes
             </Link>
             <Link href="/proyectos" className="hover:text-red-500 transition-colors">
@@ -157,10 +165,49 @@ export default function Home() {
             variant="outline"
             size="sm"
             className="md:hidden border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white"
+            onClick={toggleMobileMenu}
           >
             Menu
           </Button>
         </div>
+        
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-zinc-900 border-b border-zinc-800 animate-in fade-in slide-in-from-top-5 duration-300">
+            <div className="container mx-auto px-6 py-4">
+              <nav className="flex flex-col space-y-4 uppercase text-sm font-medium">
+                <Link 
+                  href="/" 
+                  className="hover:text-red-500 transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Inicio
+                </Link>
+                <Link 
+                  href="#nosotros" 
+                  className="hover:text-red-500 transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Nosotros
+                </Link>
+                <Link 
+                  href="#planes" 
+                  className="hover:text-red-500 transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Planes
+                </Link>
+                <Link 
+                  href="/proyectos" 
+                  className="hover:text-red-500 transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Proyectos
+                </Link>
+              </nav>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero Section with Video Background for Mobile */}
@@ -197,9 +244,6 @@ export default function Home() {
 
         <div className="container mx-auto px-6 md:px-12 lg:px-24 z-10 text-center md:text-center">
           <div className="max-w-3xl mx-auto space-y-8">
-            <div className="inline-block px-4 py-1 rounded-full bg-red-500/10 text-red-500 text-sm font-medium mb-4">
-              Digital Marketing Experts
-            </div>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left md:text-center">
               Potencia tu presencia
               <br />
@@ -290,23 +334,9 @@ export default function Home() {
       </section>
 
       {/* Pricing Plans - Redesigned */}
-      <section className="py-32 bg-black relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-zinc-900 to-transparent opacity-70"></div>
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-red-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-red-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-red-500/10 rounded-full blur-3xl"></div>
-
-          {/* Decorative elements */}
-          <div className="absolute top-20 left-10 w-1 h-20 bg-gradient-to-b from-red-500 to-transparent"></div>
-          <div className="absolute top-60 right-20 w-1 h-40 bg-gradient-to-b from-red-500 to-transparent"></div>
-          <div className="absolute bottom-40 left-1/3 w-1 h-20 bg-gradient-to-b from-red-500 to-transparent"></div>
-
-          {/* Animated dots */}
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-          <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-red-500 rounded-full animate-pulse delay-300"></div>
-          <div className="absolute bottom-1/4 left-1/2 w-2 h-2 bg-red-500 rounded-full animate-pulse delay-700"></div>
-        </div>
+      <section id="planes" className="py-32 bg-black relative overflow-hidden">
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-red-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-red-500/5 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           <div className="text-center md:text-center mb-16 max-w-3xl mx-auto">
@@ -813,25 +843,21 @@ export default function Home() {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 bg-zinc-900 relative">
+      <section id="nosotros" className="py-24 bg-zinc-900 relative">
         <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-black to-transparent"></div>
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="md:w-1/2">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-red-500 to-red-700 rounded-xl opacity-20 blur-lg"></div>
-                <div className="relative rounded-xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mili.jpg-TfUgCcALimGgFT4Z0DQiv7bsgPeUrm.jpeg"
-                    alt="Milagros Murillo"
-                    width={600}
-                    height={800}
-                    className="object-cover w-full h-auto"
-                  />
-                </div>
+            <div className="md:w-1/2 order-2 md:order-1">
+              <div className="relative w-full aspect-square rounded-xl overflow-hidden">
+                <Image
+                  src="/placeholder.svg?height=600&width=600"
+                  alt="Milagros Murillo"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 order-1 md:order-2">
               <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium mb-4">
                 Nuestro Equipo
               </div>

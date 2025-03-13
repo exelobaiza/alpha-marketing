@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Alpha Marketing',
+  description: 'Alpha Marketing Agency - Potencia tu presencia en redes sociales',
   generator: 'v0.dev',
 }
 
@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="es" style={{ scrollBehavior: 'smooth' }}>
       <body>{children}</body>
     </html>
   )
