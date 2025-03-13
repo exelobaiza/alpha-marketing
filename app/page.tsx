@@ -10,8 +10,8 @@ import { useState, useEffect, useRef } from "react"
 function VideoCarousel() {
   const [currentVideo, setCurrentVideo] = useState(0)
   const [videoError, setVideoError] = useState(false)
+  const [individualErrors, setIndividualErrors] = useState<boolean[]>([false, false, false, false, false])
   const videoRefs = [
-    useRef<HTMLVideoElement>(null),
     useRef<HTMLVideoElement>(null),
     useRef<HTMLVideoElement>(null),
     useRef<HTMLVideoElement>(null),
@@ -19,21 +19,68 @@ function VideoCarousel() {
     useRef<HTMLVideoElement>(null)
   ]
 
-  // Using the Discord CDN links provided
+  // Usando los videos locales
   const videos = [
-    "https://media.discordapp.net/attachments/1102984847909203968/1349372624068808776/mili2.mp4?ex=67d2dcaf&is=67d18b2f&hm=b300efdcdcf3eab1dee86030cd7556da8e5820b2c35d6868498fe328cfbb50f2&",
-    "https://media.discordapp.net/attachments/1102984847909203968/1349372625352261704/mili1.mp4?ex=67d2dcb0&is=67d18b30&hm=c3be8e073405708480b57973de0d6f7a6f22bef0caae8754755552e2c09343ac&",
-    "https://media.discordapp.net/attachments/1102984847909203968/1349372624068808776/mili2.mp4?ex=67d2dcaf&is=67d18b2f&hm=b300efdcdcf3eab1dee86030cd7556da8e5820b2c35d6868498fe328cfbb50f2&",
-    "https://media.discordapp.net/attachments/1102984847909203968/1349372624756805796/mili3.mp4?ex=67d2dcaf&is=67d18b2f&hm=dbf8547bc6608ba2eeec4a09afea146f026caf4c3a377ad2451ad624499ef3ad&",
-    "https://media.discordapp.net/attachments/1102984847909203968/1349374377585545338/mili4.mp4?ex=67d2de51&is=67d18cd1&hm=9f76c0911661fb8673b1aa60216b966c33085590a5445f7115c16f122c45b15f&",
-    "https://media.discordapp.net/attachments/1102984847909203968/1349374378433052812/mili5.mp4?ex=67d2de51&is=67d18cd1&hm=e0ed35a5be27a5779944fd1a6693896897d30f19351ce2e3c6a277a269a92e76&"
+    "/videos/mili1.mp4",
+    "/videos/mili2.mp4",
+    "/videos/mili3.mp4",
+    "/videos/mili4.mp4",
+    "/videos/mili5.mp4"
   ]
 
+  // Fallback images para cuando los videos fallan
+  const fallbackImages = [
+    "/placeholder.svg?height=600&width=300&text=Video+1",
+    "/placeholder.svg?height=600&width=300&text=Video+2",
+    "/placeholder.svg?height=600&width=300&text=Video+3",
+    "/placeholder.svg?height=600&width=300&text=Video+4",
+    "/placeholder.svg?height=600&width=300&text=Video+5"
+  ]
+
+  // Manejar errores de video individuales
+  const handleVideoError = (index: number) => {
+    console.error(`Error loading video ${index + 1}`)
+    const newErrors = [...individualErrors]
+    newErrors[index] = true
+    setIndividualErrors(newErrors)
+    
+    // Si todos los videos tienen errores, mostrar el mensaje de error general
+    if (newErrors.every(error => error)) {
+      setVideoError(true)
+    } else {
+      // De lo contrario, intentar reproducir el siguiente video válido
+      const nextValidIndex = findNextValidVideoIndex(index)
+      if (nextValidIndex !== -1) {
+        setCurrentVideo(nextValidIndex)
+      }
+    }
+  }
+
+  // Encontrar el siguiente video que no tenga errores
+  const findNextValidVideoIndex = (currentIndex: number) => {
+    for (let i = 1; i <= videos.length; i++) {
+      const index = (currentIndex + i) % videos.length
+      if (!individualErrors[index]) {
+        return index
+      }
+    }
+    return -1 // Todos los videos tienen errores
+  }
+
   useEffect(() => {
-    // Function to play the current video and set up the next one
+    // Función para reproducir el video actual y configurar el siguiente
     const playCurrentVideo = () => {
-      // Hide all videos
-      videoRefs.forEach((ref, index) => {
+      // Si el video actual tiene un error, intentar encontrar uno válido
+      if (individualErrors[currentVideo]) {
+        const nextValidIndex = findNextValidVideoIndex(currentVideo)
+        if (nextValidIndex !== -1) {
+          setCurrentVideo(nextValidIndex)
+          return
+        }
+      }
+
+      // Ocultar todos los videos
+      videoRefs.forEach((ref) => {
         if (ref.current) {
           ref.current.style.display = "none"
           ref.current.pause()
@@ -41,8 +88,8 @@ function VideoCarousel() {
         }
       })
 
-      // Show and play current video
-      if (videoRefs[currentVideo].current) {
+      // Mostrar y reproducir el video actual
+      if (videoRefs[currentVideo]?.current && !individualErrors[currentVideo]) {
         videoRefs[currentVideo].current.style.display = "block"
 
         const playPromise = videoRefs[currentVideo].current.play()
@@ -50,25 +97,25 @@ function VideoCarousel() {
         if (playPromise !== undefined) {
           playPromise
             .then(() => {
-              // Set timeout to switch to next video after 4 seconds
-              setTimeout(() => {
-                setCurrentVideo((prev) => (prev + 1) % videos.length)
+              // Configurar temporizador para cambiar al siguiente video después de 4 segundos
+              const timer = setTimeout(() => {
+                const nextIndex = findNextValidVideoIndex(currentVideo)
+                if (nextIndex !== -1) {
+                  setCurrentVideo(nextIndex)
+                }
               }, 4000)
+              return () => clearTimeout(timer)
             })
             .catch((error: unknown) => {
               console.error("Video play failed:", error)
-              setVideoError(true)
-              // Try next video if this one fails
-              setTimeout(() => {
-                setCurrentVideo((prev) => (prev + 1) % videos.length)
-              }, 1000)
+              handleVideoError(currentVideo)
             })
         }
       }
     }
 
     playCurrentVideo()
-  }, [currentVideo])
+  }, [currentVideo, individualErrors])
 
   return (
     <div className="w-full h-full bg-black">
@@ -77,30 +124,48 @@ function VideoCarousel() {
           <p className="text-white text-center px-4">
             No se pudieron cargar los videos.
             <br />
-            Verifica las URLs de los videos.
+            Verifica tu conexión a internet.
           </p>
         </div>
       ) : (
         <>
           {videos.map((src, index) => (
-            <video
-              key={index}
-              ref={videoRefs[index]}
-              src={src}
-              className="absolute inset-0 w-full h-full object-cover"
-              muted
-              playsInline
-              style={{ display: index === 0 ? "block" : "none" }}
-              onError={() => setVideoError(true)}
-            />
+            <div key={index} className="absolute inset-0 w-full h-full" style={{ display: index === currentVideo ? "block" : "none" }}>
+              {individualErrors[index] ? (
+                // Imagen de fallback si el video tiene error
+                <div className="w-full h-full flex items-center justify-center bg-zinc-900">
+                  <Image 
+                    src={fallbackImages[index]} 
+                    alt={`Video ${index + 1} thumbnail`} 
+                    fill 
+                    className="object-cover opacity-70"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <p className="text-white bg-black/50 p-2 rounded">Video no disponible</p>
+                  </div>
+                </div>
+              ) : (
+                // Video si no hay error
+                <video
+                  ref={videoRefs[index]}
+                  src={src}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  muted
+                  playsInline
+                  onError={() => handleVideoError(index)}
+                />
+              )}
+            </div>
           ))}
 
-          {/* Video indicators */}
+          {/* Indicadores de video */}
           <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
             {videos.map((_, index) => (
-              <div
+              <button
                 key={index}
-                className={`w-2 h-2 rounded-full ${currentVideo === index ? "bg-red-500" : "bg-zinc-600"}`}
+                className={`w-2 h-2 rounded-full ${currentVideo === index ? "bg-red-500" : individualErrors[index] ? "bg-zinc-800" : "bg-zinc-600"}`}
+                onClick={() => setCurrentVideo(index)}
+                aria-label={`Ver video ${index + 1}`}
               />
             ))}
           </div>
@@ -132,7 +197,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <main className="flex min-h-screen flex-col">
       {/* Header/Navigation - Updated to #000000 background */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-black backdrop-blur-md border-b border-zinc-800">
         <div className="container mx-auto px-6 md:px-12 lg:px-24 py-4 flex items-center justify-between">
@@ -223,7 +288,7 @@ export default function Home() {
             poster="/placeholder.svg?height=1080&width=1920"
           >
             <source
-              src="https://cdn.discordapp.com/attachments/1102984847909203968/1349365647175323679/background.mp4?ex=67d2d630&is=67d184b0&hm=89b612391e0be88abd0b1b40ba531f1018b941ebe4a78bd306669d399241a493&"
+              src="/videos/background.mp4"
               type="video/mp4"
             />
           </video>
@@ -947,66 +1012,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer - Updated to #000000 background */}
-      <footer className="py-12 bg-black border-t border-zinc-800">
-        <div className="container mx-auto px-6 md:px-12 lg:px-24">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-            <div className="flex items-center mb-6 md:mb-0">
-              <Link href="/">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alpha-logo-dNZnmpaAHvAZsQojlBsEdopxqCzsxF.png"
-                  alt="Alpha Marketing Agency"
-                  width={120}
-                  height={40}
-                  className="h-10 w-auto"
-                />
-              </Link>
+      {/* Footer */}
+      <div className="bg-black text-white py-12">
+        <footer className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-6 md:mb-0">
+              <Image src="/logo.png" alt="Alpha Marketing Logo" width={120} height={40} />
+              <p className="mt-2 text-zinc-400 text-sm">© 2024 Alpha Marketing. Todos los derechos reservados.</p>
             </div>
-            <div className="flex space-x-6">
-              <Link href="#" className="text-zinc-400 hover:text-red-500 transition-colors">
+            
+            <div className="flex space-x-4">
+              {/* Instagram */}
+              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white">
+                <span className="sr-only">Instagram</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     fillRule="evenodd"
-                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.344 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.683-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
                     clipRule="evenodd"
                   />
                 </svg>
               </Link>
-              <Link href="#" className="text-zinc-400 hover:text-red-500 transition-colors">
+              
+              {/* Twitter/X */}
+              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white">
+                <span className="sr-only">Twitter</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    fillRule="evenodd"
-                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                    clipRule="evenodd"
-                  />
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </Link>
-              <Link href="#" className="text-zinc-400 hover:text-red-500 transition-colors">
+              
+              {/* LinkedIn */}
+              <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white">
+                <span className="sr-only">LinkedIn</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
               </Link>
             </div>
           </div>
-          <div className="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between">
-            <p className="text-sm text-zinc-500 mb-4 md:mb-0 text-left">
-              © {new Date().getFullYear()} Alpha Marketing Agency. Todos los derechos reservados.
-            </p>
-            <div className="flex space-x-6">
-              <Link href="#" className="text-sm text-zinc-500 hover:text-red-500 transition-colors">
-                Términos de Servicio
-              </Link>
-              <Link href="#" className="text-sm text-zinc-500 hover:text-red-500 transition-colors">
-                Política de Privacidad
-              </Link>
-              <Link href="#" className="text-sm text-zinc-500 hover:text-red-500 transition-colors">
-                Cookies
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </main>
   )
 }
 
