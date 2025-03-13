@@ -915,7 +915,7 @@ export default function Home() {
             <div className="md:w-1/2 order-2 md:order-1">
               <div className="relative w-full aspect-square rounded-xl overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=600&width=600"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mili-murillo-UNODmpaAHvAZsQojlBsEdopxqCzsxF.jpg"
                   alt="Milagros Murillo"
                   fill
                   className="object-cover"
@@ -1017,7 +1017,13 @@ export default function Home() {
         <footer className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <Image src="/logo.png" alt="Alpha Marketing Logo" width={120} height={40} />
+              <Image 
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alpha-logo-dNZnmpaAHvAZsQojlBsEdopxqCzsxF.png"
+                alt="Alpha Marketing Agency"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
               <p className="mt-2 text-zinc-400 text-sm">© 2024 Alpha Marketing. Todos los derechos reservados.</p>
             </div>
             
