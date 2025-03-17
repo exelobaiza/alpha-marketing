@@ -903,7 +903,7 @@ export default function Home() {
             <div className="md:w-1/2 order-2 md:order-1">
               <div className="relative w-full aspect-square rounded-xl overflow-hidden">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mili-murillo-UNODmpaAHvAZsQojlBsEdopxqCzsxF.jpg"
+                  src="/images/mili.jpg"
                   alt="Milagros Murillo"
                   fill
                   className="object-cover"
