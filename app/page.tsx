@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Check, Headphones, Phone, ChevronRight, Star, ArrowRight } from "lucide-react"
+import { Check, Headphones, Phone, ChevronRight, Star, ArrowRight, MapPin } from "lucide-react"
 
 import { useState, useEffect, useRef } from "react"
 
@@ -306,12 +306,19 @@ export default function Home() {
               Transformamos tu marca con estrategias digitales innovadoras y contenido de alto impacto
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-start md:justify-center">
-              <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 rounded-xl text-lg font-medium">
+              <Button 
+                className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 rounded-xl text-lg font-medium"
+                onClick={() => {
+                  const section = document.getElementById('inversion-estrategica')
+                  section?.scrollIntoView({ behavior: 'smooth' })
+                }}
+              >
                 VER PLANES
               </Button>
               <Button
                 variant="outline"
                 className="border-zinc-700 text-white hover:bg-zinc-800 px-8 py-6 rounded-xl text-lg font-medium"
+                onClick={() => window.location.href = "https://www.instagram.com/alphamarketing.agency/"}
               >
                 SEGUINOS EN INSTAGRAM
               </Button>
@@ -964,7 +971,7 @@ export default function Home() {
               <div className="space-y-6">
                 <div className="flex items-center group">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">📍</span>
+                    <MapPin className="h-5 w-5 text-white" />
                   </div>
                   <p className="text-zinc-300 group-hover:text-white transition-colors text-left">
                     Sarmiento, 717 Catamarca, ARG
