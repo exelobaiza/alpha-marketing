@@ -307,13 +307,13 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-start md:justify-center">
               <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 rounded-xl text-lg font-medium">
-                VER TIENDA
+                VER PLANES
               </Button>
               <Button
                 variant="outline"
                 className="border-zinc-700 text-white hover:bg-zinc-800 px-8 py-6 rounded-xl text-lg font-medium"
               >
-                SUMATE AL EQUIPO!
+                SEGUINOS EN INSTAGRAM
               </Button>
             </div>
             <p className="text-xl mt-8 text-left md:text-center">
