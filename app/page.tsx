@@ -327,16 +327,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="bg-gradient-to-r from-red-600 to-red-800 text-white py-5">
-        <div className="container mx-auto px-6 md:px-12 lg:px-24 flex justify-center">
-          <Link href="#" className="font-bold hover:underline flex items-center text-lg">
-            VISITA NUESTRA TIENDA
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </div>
-      </section>
-
       {/* Reels Section */}
       <section className="py-24 bg-zinc-900">
         <div className="container mx-auto px-6 md:px-12 lg:px-24">
