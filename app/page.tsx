@@ -3,9 +3,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Check, Headphones, Phone, ChevronRight, Star, ArrowRight, MapPin } from "lucide-react"
+import { Check, Headphones, Phone, ChevronRight, Star, ArrowRight, MapPin, Mail } from "lucide-react"
 
 import { useState, useEffect, useRef } from "react"
+import { useGeoLocation } from './hooks/useGeoLocation'
+import { prices, currencyByRegion } from './config/prices'
 
 function VideoCarousel() {
   const [currentVideo, setCurrentVideo] = useState(0)
@@ -176,25 +178,18 @@ function VideoCarousel() {
 }
 
 export default function Home() {
-  // State for annual/monthly billing
-  const [isAnnualBilling, setIsAnnualBilling] = useState(false)
-  
   // State for mobile menu
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { region, loading } = useGeoLocation()
   
   // Function to toggle mobile menu
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
-  
-  // Function to calculate discounted price
-  const getDiscountedPrice = (price: number) => {
-    if (isAnnualBilling) {
-      // Apply 15% discount for annual billing
-      return (price * 0.85).toLocaleString('es-AR')
-    }
-    return price.toLocaleString('es-AR')
-  }
+
+  // Get the current prices based on region
+  const currentPrices = prices[region]
+  const currentCurrency = currencyByRegion[region]
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -400,31 +395,10 @@ export default function Home() {
               No vendemos servicios, creamos experiencias digitales que transforman seguidores en comunidades y visitas
               en ventas. Elige el plan que mejor se adapte a tus objetivos.
             </p>
-
-            <div className="flex justify-start md:justify-center space-x-2 mb-12">
-              <span className="text-zinc-400">Facturación:</span>
-              <div className="relative inline-flex items-center p-1 rounded-full bg-zinc-800/50 backdrop-blur-sm">
-                <button 
-                  onClick={() => setIsAnnualBilling(false)}
-                  className={`relative z-10 px-3 py-1 text-sm rounded-full ${!isAnnualBilling ? 'bg-red-600 text-white' : 'text-zinc-400'} font-medium transition-colors`}
-                >
-                  Mensual
-                </button>
-                <button 
-                  onClick={() => setIsAnnualBilling(true)}
-                  className={`px-3 py-1 text-sm rounded-full ${isAnnualBilling ? 'bg-red-600 text-white' : 'text-zinc-400'} transition-colors`}
-                >
-                  Anual
-                </button>
-              </div>
-              <span className={`text-red-500 text-sm font-medium flex items-center ${isAnnualBilling ? 'opacity-100' : 'opacity-0'} transition-opacity`}>
-                Ahorra 15%
-              </span>
-            </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6">
-            {/* Esencial Plan */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6">
+            {/* Plan Básico */}
             <div className="group relative">
               <div className="absolute -inset-0.5 bg-gradient-to-b from-red-500 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300"></div>
               <div className="relative h-full flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 group-hover:border-red-500/30 rounded-xl overflow-hidden transition-all duration-300">
@@ -432,9 +406,9 @@ export default function Home() {
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
-                        Plan Esencial
+                        Plan Básico
                       </h3>
-                      <p className="text-zinc-500">Para emprendedores y pequeños negocios</p>
+                      <p className="text-zinc-500">Para negocios que inician</p>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">✨</span>
@@ -443,12 +417,9 @@ export default function Home() {
 
                   <div className="mb-6">
                     <div className="flex items-end">
-                      <span className="text-4xl font-bold text-white">${getDiscountedPrice(599999)}</span>
-                      <span className="text-zinc-500 ml-2 mb-1">/{isAnnualBilling ? 'año' : 'mes'}</span>
+                      <span className="text-4xl font-bold text-white">{loading ? '...' : currentPrices.basic}</span>
+                      <span className="text-zinc-500 ml-2 mb-1">{currentCurrency}</span>
                     </div>
-                    <p className="text-zinc-500 text-sm mt-1">
-                      Facturación {isAnnualBilling ? 'anual' : 'mensual'}, sin compromiso
-                    </p>
                   </div>
 
                   <Button className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors">
@@ -464,8 +435,8 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">2 Reels Alta Complejidad</span>
-                        <span className="text-zinc-500 text-sm">Guionizados y producidos profesionalmente</span>
+                        <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
+                        <span className="text-zinc-500 text-sm">Instagram y Facebook</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -473,8 +444,8 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">2 Reels Baja Complejidad</span>
-                        <span className="text-zinc-500 text-sm">Contenido ágil para mantener presencia</span>
+                        <span className="text-zinc-300 block">4 historias mensuales</span>
+                        <span className="text-zinc-500 text-sm">2 post y 2 reels</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -482,17 +453,8 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">2 Horas de Producción</span>
-                        <span className="text-zinc-500 text-sm">Sesión de fotos o videos en locación</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Gestión de 2 redes sociales</span>
-                        <span className="text-zinc-500 text-sm">Publicación y monitoreo de engagement</span>
+                        <span className="text-zinc-300 block">Informe mensual</span>
+                        <span className="text-zinc-500 text-sm">Métricas y recomendaciones</span>
                       </div>
                     </li>
                   </ul>
@@ -500,94 +462,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Profesional Plan */}
-            <div className="group relative lg:scale-105 lg:-translate-y-2 z-10">
-              <div className="absolute -inset-0.5 bg-gradient-to-b from-red-500 to-transparent opacity-75 rounded-2xl blur transition duration-300"></div>
-              <div className="relative h-full flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-red-500/30 rounded-xl overflow-hidden transition-all duration-300">
-                <div className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-bl-lg">
-                  RECOMENDADO
-                </div>
-
-                <div className="p-8 pt-12">
-                  <div className="flex justify-between items-start mb-6">
-                    <div>
-                      <h3 className="text-2xl font-bold text-red-400 mb-2">Plan Profesional</h3>
-                      <p className="text-zinc-500">Para negocios en crecimiento</p>
-                    </div>
-                    <div className="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
-                      <span className="text-xl">🚀</span>
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <div className="flex items-end">
-                      <span className="text-4xl font-bold text-white">${getDiscountedPrice(999999)}</span>
-                      <span className="text-zinc-500 ml-2 mb-1">/{isAnnualBilling ? 'año' : 'mes'}</span>
-                    </div>
-                    <p className="text-zinc-500 text-sm mt-1">
-                      Facturación {isAnnualBilling ? 'anual' : 'mensual'}, sin compromiso
-                    </p>
-                  </div>
-
-                  <Button className="w-full py-6 bg-red-600 hover:bg-red-700 text-white transition-colors">
-                    Comenzar ahora
-                  </Button>
-                </div>
-
-                <div className="border-t border-zinc-800 p-8">
-                  <p className="font-medium text-white mb-4">Todo lo de Esencial, más:</p>
-                  <ul className="space-y-4">
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">4 Reels Alta Complejidad</span>
-                        <span className="text-zinc-500 text-sm">Contenido premium con guión y producción</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">4 Reels Baja Complejidad</span>
-                        <span className="text-zinc-500 text-sm">Contenido ágil para mantener presencia</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">4 Horas de Producción</span>
-                        <span className="text-zinc-500 text-sm">Sesiones de fotos o videos en locación</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Gestión de 3 redes sociales</span>
-                        <span className="text-zinc-500 text-sm">Estrategia personalizada por plataforma</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Informe mensual de resultados</span>
-                        <span className="text-zinc-500 text-sm">Análisis de métricas y recomendaciones</span>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Premium Plan */}
+            {/* Plan Intermedio */}
             <div className="group relative">
               <div className="absolute -inset-0.5 bg-gradient-to-b from-red-500 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300"></div>
               <div className="relative h-full flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 group-hover:border-red-500/30 rounded-xl overflow-hidden transition-all duration-300">
@@ -595,23 +470,20 @@ export default function Home() {
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
-                        Plan Premium
+                        Plan Intermedio
                       </h3>
-                      <p className="text-zinc-500">Para empresas y marcas establecidas</p>
+                      <p className="text-zinc-500">Para negocios en crecimiento</p>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
-                      <span className="text-xl">💎</span>
+                      <span className="text-xl">🚀</span>
                     </div>
                   </div>
 
                   <div className="mb-6">
                     <div className="flex items-end">
-                      <span className="text-4xl font-bold text-white">${getDiscountedPrice(1199999)}</span>
-                      <span className="text-zinc-500 ml-2 mb-1">/{isAnnualBilling ? 'año' : 'mes'}</span>
+                      <span className="text-4xl font-bold text-white">{loading ? '...' : currentPrices.intermediate}</span>
+                      <span className="text-zinc-500 ml-2 mb-1">{currentCurrency}</span>
                     </div>
-                    <p className="text-zinc-500 text-sm mt-1">
-                      Facturación {isAnnualBilling ? 'anual' : 'mensual'}, sin compromiso
-                    </p>
                   </div>
 
                   <Button className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors">
@@ -620,15 +492,15 @@ export default function Home() {
                 </div>
 
                 <div className="border-t border-zinc-800 p-8">
-                  <p className="font-medium text-white mb-4">Todo lo de Profesional, más:</p>
+                  <p className="font-medium text-white mb-4">Incluye:</p>
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">Servicio Web Completo</span>
-                        <span className="text-zinc-500 text-sm">Diseño y desarrollo de sitio web</span>
+                        <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
+                        <span className="text-zinc-500 text-sm">Instagram y Facebook</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -636,8 +508,8 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">Estrategia de contenido trimestral</span>
-                        <span className="text-zinc-500 text-sm">Planificación avanzada de campañas</span>
+                        <span className="text-zinc-300 block">6 historias mensuales</span>
+                        <span className="text-zinc-500 text-sm">3 post y 3 reels</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -645,8 +517,8 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">Gestión de 4 redes sociales</span>
-                        <span className="text-zinc-500 text-sm">Cobertura completa de plataformas</span>
+                        <span className="text-zinc-300 block">Publicidad Digital</span>
+                        <span className="text-zinc-500 text-sm">Hasta $50.000 ARS/mes</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -654,8 +526,54 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">Asesoría estratégica mensual</span>
-                        <span className="text-zinc-500 text-sm">Reuniones con nuestro equipo creativo</span>
+                        <span className="text-zinc-300 block">Consultoría Mensual</span>
+                        <span className="text-zinc-500 text-sm">Evaluación y ajustes</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Plan Pro */}
+            <div className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-b from-red-500 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300"></div>
+              <div className="relative h-full flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 group-hover:border-red-500/30 rounded-xl overflow-hidden transition-all duration-300">
+                <div className="p-8">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
+                        Plan Pro
+                      </h3>
+                      <p className="text-zinc-500">Para empresas establecidas</p>
+                    </div>
+                    <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
+                      <span className="text-xl">💎</span>
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <div className="flex items-end">
+                      <span className="text-4xl font-bold text-white">{loading ? '...' : currentPrices.pro}</span>
+                      <span className="text-zinc-500 ml-2 mb-1">{currentCurrency}</span>
+                    </div>
+                  </div>
+
+                  <Button className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors">
+                    Comenzar ahora
+                  </Button>
+                </div>
+
+                <div className="border-t border-zinc-800 p-8">
+                  <p className="font-medium text-white mb-4">Incluye:</p>
+                  <ul className="space-y-4">
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
+                        <span className="text-zinc-500 text-sm">Instagram y Facebook</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -663,8 +581,99 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">Campañas de publicidad pagada</span>
-                        <span className="text-zinc-500 text-sm">Gestión de anuncios en redes sociales</span>
+                        <span className="text-zinc-300 block">8 historias mensuales</span>
+                        <span className="text-zinc-500 text-sm">4 post y 4 reels</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">Publicidad Digital</span>
+                        <span className="text-zinc-500 text-sm">Hasta $50.000 ARS/mes</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">Consultoría Mensual</span>
+                        <span className="text-zinc-500 text-sm">Evaluación y ajustes</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Plan Full */}
+            <div className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-b from-red-500 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300"></div>
+              <div className="relative h-full flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 group-hover:border-red-500/30 rounded-xl overflow-hidden transition-all duration-300">
+                <div className="p-8">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
+                        Plan Full
+                      </h3>
+                      <p className="text-zinc-500">Gestión<br/> integral</p>
+                    </div>
+                    <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
+                      <span className="text-xl">🌟</span>
+                    </div>
+                  </div>
+
+                  <div className="mb-6">
+                    <div className="flex items-end">
+                      <span className="text-4xl font-bold text-white">{loading ? '...' : currentPrices.full}</span>
+                      <span className="text-zinc-500 ml-2 mb-1">{currentCurrency}</span>
+                    </div>
+                  </div>
+
+                  <Button className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors">
+                    Comenzar ahora
+                  </Button>
+                </div>
+
+                <div className="border-t border-zinc-800 p-8">
+                  <p className="font-medium text-white mb-4">Incluye:</p>
+                  <ul className="space-y-4">
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
+                        <span className="text-zinc-500 text-sm">Instagram y Facebook</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">8 historias mensuales</span>
+                        <span className="text-zinc-500 text-sm">4 post y 4 reels</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">Publicidad Digital</span>
+                        <span className="text-zinc-500 text-sm">Hasta $50.000 ARS/mes</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">Consultoría Mensual</span>
+                        <span className="text-zinc-500 text-sm">Evaluación y ajustes</span>
                       </div>
                     </li>
                   </ul>
@@ -679,7 +688,10 @@ export default function Home() {
                 <h3 className="text-xl font-bold text-white mb-2 text-left">¿Necesitas algo más personalizado?</h3>
                 <p className="text-zinc-400 text-left">Creamos planes a medida para adaptarnos a tus necesidades específicas.</p>
               </div>
-              <Button className="whitespace-nowrap bg-red-600 hover:bg-red-700 text-white">
+              <Button 
+                className="whitespace-nowrap bg-red-600 hover:bg-red-700 text-white"
+                onClick={() => window.location.href = 'mailto:contacto@tuempresa.com'}
+              >
                 Contactar para plan personalizado
               </Button>
             </div>
@@ -969,22 +981,42 @@ export default function Home() {
                 contactarnos. llámanos o escríbenos, ¡estamos listos para escucharte!
               </p>
               <div className="space-y-6">
-                <div className="flex items-center group">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                    <MapPin className="h-5 w-5 text-white" />
-                  </div>
-                  <p className="text-zinc-300 group-hover:text-white transition-colors text-left">
-                    Sarmiento, 717 Catamarca, ARG
-                  </p>
-                </div>
+                {/* WhatsApp */}
                 <div className="flex items-center group">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
                     <Phone className="h-5 w-5 text-white" />
                   </div>
-                  <p className="text-zinc-300 group-hover:text-white transition-colors text-left">+54 9 3834 93-2685</p>
+                  <p className="text-zinc-300 group-hover:text-white transition-colors text-left">
+                    <a href="https://wa.me/5493834058234" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors">
+                      +54 9 383 405-8234
+                    </a>
+                  </p>
+                </div>
+
+                {/* Call */}
+                <div className="flex items-center group">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                    <Headphones className="h-5 w-5 text-white" />
+                  </div>
+                  <p className="text-zinc-300 group-hover:text-white transition-colors text-left">
+                    <a href="tel:+34605222762" className="hover:text-red-400 transition-colors">
+                      +34 605 222-762
+                    </a>
+                  </p>
+                </div>
+
+                {/* Email */}
+                <div className="flex items-center group">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                    <Mail className="h-5 w-5 text-white" />
+                  </div>
+                  <p className="text-zinc-300 group-hover:text-white transition-colors text-left">
+                    <a href="mailto:mimurilloo@gmail.com" className="hover:text-red-400 transition-colors">
+                      mimurilloo@gmail.com
+                    </a>
+                  </p>
                 </div>
               </div>
-              <Button className="mt-8 bg-red-600 hover:bg-red-700 text-white px-8 py-3">Contáctanos</Button>
             </div>
             <div className="md:w-1/2 flex justify-center hidden md:flex">
               <div className="relative">
@@ -1013,35 +1045,6 @@ export default function Home() {
               <p className="mt-2 text-zinc-400 text-sm">© 2024 Alpha Marketing. Todos los derechos reservados.</p>
             </div>
             
-            <div className="flex space-x-4">
-              {/* Instagram */}
-              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white">
-                <span className="sr-only">Instagram</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    fillRule="evenodd"
-                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.344 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.683-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </Link>
-              
-              {/* Twitter/X */}
-              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white">
-                <span className="sr-only">Twitter</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </Link>
-              
-              {/* LinkedIn */}
-              <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white">
-                <span className="sr-only">LinkedIn</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </Link>
-            </div>
           </div>
         </footer>
       </div>
