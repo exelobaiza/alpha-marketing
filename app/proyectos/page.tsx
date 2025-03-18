@@ -24,7 +24,7 @@ export default function ProyectosPage() {
           <div className="flex items-center">
             <Link href="/">
               <Image
-                src="/placeholder.svg?height=40&width=120&text=ALPHA"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alpha-logo-dNZnmpaAHvAZsQojlBsEdopxqCzsxF.png"
                 alt="Alpha Marketing Agency"
                 width={120}
                 height={40}

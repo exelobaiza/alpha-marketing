@@ -368,7 +368,7 @@ export default function Home() {
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
-                        Plan Básico
+                        Plan <br /> Básico
                       </h3>
                       <p className="text-zinc-500">Para negocios que inician</p>
                     </div>
@@ -435,7 +435,7 @@ export default function Home() {
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
-                        Plan Intermedio
+                        Plan <br /> Intermedio
                       </h3>
                       <p className="text-zinc-500">Para negocios en crecimiento</p>
                     </div>
@@ -511,7 +511,7 @@ export default function Home() {
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
-                        Plan Pro
+                        Plan <br /> Pro
                       </h3>
                       <p className="text-zinc-500">Para empresas establecidas</p>
                     </div>
@@ -587,7 +587,7 @@ export default function Home() {
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
-                        Plan Full
+                        Plan <br /> Full
                       </h3>
                       <p className="text-zinc-500">Gestión<br/> integral</p>
                     </div>
