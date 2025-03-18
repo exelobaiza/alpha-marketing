@@ -341,14 +341,8 @@ export default function Home() {
               </div>
               <h3 className="text-red-500 font-bold mb-2 text-xl text-left">Reels</h3>
               <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left">
-                De baja complejidad
+                Social Media
               </h2>
-              <p className="text-zinc-400 mb-8 text-lg leading-relaxed text-left">
-                Estos reels están diseñados para transmitir un mensaje de manera rápida y efectiva, con un enfoque en la
-                simplicidad. Utilizan elementos visuales y efectos básicos, fáciles de crear, pero que mantienen el
-                interés del espectador. Son ideales para quienes buscan una producción ágil y accesible sin sacrificar
-                el impacto en su audiencia.
-              </p>
               <div className="space-y-6">
                 <div className="flex items-center bg-zinc-800/50 p-4 rounded-lg hover:bg-zinc-800 transition-colors">
                   <div className="w-3 h-3 bg-red-500 rounded-full mr-4"></div>
@@ -708,38 +702,6 @@ export default function Home() {
               >
                 Contactar para plan personalizado
               </Button>
-            </div>
-          </div>
-
-          <div className="mt-16 flex flex-wrap justify-center gap-8">
-            <div className="flex items-center">
-              <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center mr-4">
-                <span className="text-2xl">🔒</span>
-              </div>
-              <div>
-                <p className="text-white font-medium">Sin contratos largos</p>
-                <p className="text-zinc-500 text-sm">Cancela cuando quieras</p>
-              </div>
-            </div>
-
-            <div className="flex items-center">
-              <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center mr-4">
-                <span className="text-2xl">🤝</span>
-              </div>
-              <div>
-                <p className="text-white font-medium">Soporte dedicado</p>
-                <p className="text-zinc-500 text-sm">Siempre a tu disposición</p>
-              </div>
-            </div>
-
-            <div className="flex items-center">
-              <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center mr-4">
-                <span className="text-2xl">📈</span>
-              </div>
-              <div>
-                <p className="text-white font-medium">Resultados medibles</p>
-                <p className="text-zinc-500 text-sm">Informes de desempeño</p>
-              </div>
             </div>
           </div>
         </div>
