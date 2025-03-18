@@ -806,11 +806,6 @@ export default function Home() {
               <Button className="bg-red-600 hover:bg-red-700 text-white px-8">VER TODO</Button>
             </Link>
           </div>
-
-          <div className="text-center md:text-center mt-20">
-            <p className="mb-2 text-zinc-400 text-left md:text-center">Explora nuestros últimos proyectos WEBS</p>
-            <h3 className="text-xl font-bold text-red-500 text-left md:text-center">GALERIA WEB</h3>
-          </div>
         </div>
       </section>
 
@@ -864,7 +859,6 @@ export default function Home() {
               <p className="text-red-500 text-lg italic mb-6 text-left">
                 "Alpha no es solo una agencia, es el reflejo de mi pasión por el marketing y la comunicación."
               </p>
-              <Button className="mt-4 bg-red-600 hover:bg-red-700 text-white px-8 py-3">Conoce al equipo</Button>
             </div>
           </div>
         </div>
