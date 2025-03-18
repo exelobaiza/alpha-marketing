@@ -318,12 +318,6 @@ export default function Home() {
                 SEGUINOS EN INSTAGRAM
               </Button>
             </div>
-            <p className="text-xl mt-8 text-left md:text-center">
-              <span className="text-zinc-400">Packs de contenido desde </span>
-              <span className="text-white font-bold">
-                {loading ? '...' : region === 'EU' ? '200€' : '$250.000 ARS'}
-              </span>
-            </p>
           </div>
         </div>
         <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
