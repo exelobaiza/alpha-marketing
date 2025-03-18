@@ -820,65 +820,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-24 bg-black relative overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-red-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-red-500/5 rounded-full blur-3xl"></div>
-
-        <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-          <div className="text-center md:text-center mb-16">
-            <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium mb-4">
-              Metodología
-            </div>
-            <p className="text-red-500 mb-2 text-lg text-left md:text-center">¿Como lo hacemos?</p>
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left md:text-center">
-              Nuestro Proceso
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-zinc-900/30 backdrop-blur-sm p-8 rounded-xl border border-zinc-800 hover:border-red-500/30 transition-all hover:shadow-lg hover:shadow-red-500/5 group">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-white text-2xl font-bold">1</span>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-left md:text-center group-hover:text-red-500 transition-colors">
-                PLANIFICAMOS EL QUÉ
-              </h3>
-              <p className="text-zinc-400 text-left md:text-center">
-                Empezamos escuchando tus necesidades y a quién te diriges. Planificamos el contenido según el plan
-                elegido y, una vez aprobado, organizamos el calendario de grabación con una semana de anticipación.
-              </p>
-            </div>
-
-            <div className="bg-zinc-900/30 backdrop-blur-sm p-8 rounded-xl border border-zinc-800 hover:border-red-500/30 transition-all hover:shadow-lg hover:shadow-red-500/5 group">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-white text-2xl font-bold">2</span>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-left md:text-center group-hover:text-red-500 transition-colors">
-                HORA DE GRABAR
-              </h3>
-              <p className="text-zinc-400 text-left md:text-center">
-                Con la planificación lista, producimos el contenido. Usamos equipo de alta calidad para grabar en
-                jornadas de 4 horas, capturando todo el material necesario, ya sea fotografía o video.
-              </p>
-            </div>
-
-            <div className="bg-zinc-900/30 backdrop-blur-sm p-8 rounded-xl border border-zinc-800 hover:border-red-500/30 transition-all hover:shadow-lg hover:shadow-red-500/5 group">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <span className="text-white text-2xl font-bold">3</span>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-left md:text-center group-hover:text-red-500 transition-colors">
-                SE COCINA Y DISTRIBUYE
-              </h3>
-              <p className="text-zinc-400 text-left md:text-center">
-                Editamos el contenido y lo distribuimos. Realizamos las correcciones necesarias, añadimos animaciones y
-                entregamos el material en 1080p Full HD. El contenido final se publica con su copy y calendario en
-                Notion.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Team Section */}
       <section id="nosotros" className="py-24 bg-zinc-900 relative">
