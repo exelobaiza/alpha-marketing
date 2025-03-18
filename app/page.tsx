@@ -326,43 +326,15 @@ export default function Home() {
       </section>
 
       {/* Reels Section */}
-      <section className="py-24 bg-zinc-900">
-        <div className="container mx-auto px-6 md:px-12 lg:px-24">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="md:w-1/2">
-              <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium mb-4">
-                Contenido Digital
+      <section className="py-24 bg-zinc-900 flex items-center justify-center">
+        <div className="container mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-center">
+          <div className="flex justify-center items-center">
+            <div className="relative w-[280px] h-[560px] border-[12px] border-zinc-800 rounded-[40px] overflow-hidden shadow-2xl shadow-red-500/10">
+              <div className="absolute top-0 left-0 right-0 h-6 bg-zinc-800 z-10 rounded-t-lg"></div>
+              <div className="relative w-full h-full">
+                <VideoCarousel />
               </div>
-              <h3 className="text-red-500 font-bold mb-2 text-xl text-left">Reels</h3>
-              <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left">
-                Social Media
-              </h2>
-              <div className="space-y-6">
-                <div className="flex items-center bg-zinc-800/50 p-4 rounded-lg hover:bg-zinc-800 transition-colors">
-                  <div className="w-3 h-3 bg-red-500 rounded-full mr-4"></div>
-                  <p className="uppercase font-medium">PRODUCCIÓN RÁPIDA Y SENCILLA</p>
-                </div>
-                <div className="flex items-center bg-zinc-800/50 p-4 rounded-lg hover:bg-zinc-800 transition-colors">
-                  <div className="w-3 h-3 bg-red-500 rounded-full mr-4"></div>
-                  <p className="uppercase font-medium">ACCESIBLES PARA CUALQUIER CREADOR</p>
-                </div>
-                <div className="flex items-center bg-zinc-800/50 p-4 rounded-lg hover:bg-zinc-800 transition-colors">
-                  <div className="w-3 h-3 bg-red-500 rounded-full mr-4"></div>
-                  <p className="uppercase font-medium">ENFOQUE DIRECTO AL MENSAJE</p>
-                </div>
-              </div>
-            </div>
-            <div className="md:w-1/2 flex justify-center">
-              <div className="relative w-[280px] h-[560px] border-[12px] border-zinc-800 rounded-[40px] overflow-hidden shadow-2xl shadow-red-500/10">
-                <div className="absolute top-0 left-0 right-0 h-6 bg-zinc-800 z-10 rounded-t-lg"></div>
-
-                {/* Video Carousel replacing the Image */}
-                <div className="relative w-full h-full">
-                  <VideoCarousel />
-                </div>
-
-                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-zinc-700 rounded-full"></div>
-              </div>
+              <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-zinc-700 rounded-full"></div>
             </div>
           </div>
         </div>
@@ -806,6 +778,7 @@ export default function Home() {
               <Button className="bg-red-600 hover:bg-red-700 text-white px-8">VER TODO</Button>
             </Link>
           </div>
+
         </div>
       </section>
 

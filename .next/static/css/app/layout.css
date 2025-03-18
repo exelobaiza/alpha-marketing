@@ -760,17 +760,11 @@ video {
 .mt-2 {
   margin-top: 0.5rem;
 }
-.mt-20 {
-  margin-top: 5rem;
-}
 .mt-24 {
   margin-top: 6rem;
 }
 .mt-4 {
   margin-top: 1rem;
-}
-.mt-8 {
-  margin-top: 2rem;
 }
 .mt-auto {
   margin-top: auto;
@@ -1454,9 +1448,6 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity, 1));
 }
-.bg-zinc-800\/50 {
-  background-color: rgb(39 39 42 / 0.5);
-}
 .bg-zinc-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 27 / var(--tw-bg-opacity, 1));
@@ -1466,6 +1457,9 @@ video {
 }
 .bg-zinc-900\/50 {
   background-color: rgb(24 24 27 / 0.5);
+}
+.bg-zinc-800\/50 {
+  background-color: rgb(39 39 42 / 0.5);
 }
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
