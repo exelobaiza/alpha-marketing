@@ -320,7 +320,9 @@ export default function Home() {
             </div>
             <p className="text-xl mt-8 text-left md:text-center">
               <span className="text-zinc-400">Packs de contenido desde </span>
-              <span className="text-white font-bold">$199.999 ARS</span>
+              <span className="text-white font-bold">
+                {loading ? '...' : region === 'EU' ? '200€' : '$250.000 ARS'}
+              </span>
             </p>
           </div>
         </div>
@@ -422,7 +424,10 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <Button className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors">
+                  <Button 
+                    className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors"
+                    onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el Plan Básico')}`}
+                  >
                     Comenzar ahora
                   </Button>
                 </div>
@@ -486,7 +491,10 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <Button className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors">
+                  <Button 
+                    className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors"
+                    onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el Plan Intermedio')}`}
+                  >
                     Comenzar ahora
                   </Button>
                 </div>
@@ -559,7 +567,10 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <Button className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors">
+                  <Button 
+                    className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors"
+                    onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el Plan Pro')}`}
+                  >
                     Comenzar ahora
                   </Button>
                 </div>
@@ -632,7 +643,10 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <Button className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors">
+                  <Button 
+                    className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors"
+                    onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el Plan Full')}`}
+                  >
                     Comenzar ahora
                   </Button>
                 </div>
@@ -909,18 +923,19 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-black to-transparent"></div>
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="md:w-1/2 order-2 md:order-1">
+            <div className="w-full md:w-1/2">
               <div className="relative w-full aspect-square rounded-xl overflow-hidden">
                 <Image
                   src="/images/mili.jpg"
                   alt="Milagros Murillo"
-                  fill
-                  className="object-cover"
+                  width={800}
+                  height={800}
+                  className="object-cover w-full h-full"
                   priority
                 />
               </div>
             </div>
-            <div className="md:w-1/2 order-1 md:order-2">
+            <div className="w-full md:w-1/2">
               <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium mb-4">
                 Nuestro Equipo
               </div>
