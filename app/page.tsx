@@ -309,7 +309,7 @@ export default function Home() {
               <Button 
                 className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 rounded-xl text-lg font-medium"
                 onClick={() => {
-                  const section = document.getElementById('inversion-estrategica')
+                  const section = document.getElementById('planes')
                   section?.scrollIntoView({ behavior: 'smooth' })
                 }}
               >
