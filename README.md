@@ -57,35 +57,8 @@ Ofrecemos diferentes planes adaptados a las necesidades de cada cliente:
 - Llamadas: +34 605 222-762
 - Email: mimurilloo@gmail.com
 
-## Instalación y Desarrollo
-
-```bash
-# Clonar el repositorio
-git clone [url-del-repositorio]
-
-# Instalar dependencias
-npm install
-
-# Ejecutar en modo desarrollo
-npm run dev
-
-# Construir para producción
-npm run build
-
-# Iniciar en modo producción
-npm start
-```
-
-## Contribución
-Si deseas contribuir al proyecto, por favor:
-1. Haz un Fork del repositorio
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
 ## Licencia
 Este proyecto es privado y todos los derechos están reservados para Alpha Marketing Agency.
 
 ## Créditos
-Desarrollado por Alpha Marketing Agency Team 
+Desarrollado para Alpha Marketing Agency Team 
