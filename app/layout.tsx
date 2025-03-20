@@ -10,6 +10,24 @@ export const metadata: Metadata = {
   icons: {
     icon: '/images/fav.png',
   },
+  openGraph: {
+    title: 'Alpha Marketing Agency',
+    description: 'Potencia tu presencia en redes sociales con estrategias digitales innovadoras',
+    images: [
+      {
+        url: '/images/cover.png',
+        width: 1200,
+        height: 630,
+        alt: 'Alpha Marketing Agency Preview',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Alpha Marketing Agency',
+    description: 'Potencia tu presencia en redes sociales con estrategias digitales innovadoras',
+    images: ['/images/cover.png'],
+  },
 }
 
 export default function RootLayout({
