@@ -651,7 +651,50 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-16 bg-zinc-900/30 backdrop-blur-sm border border-zinc-800 rounded-xl p-8 max-w-4xl mx-auto">
+          {/* Influencer Services Section */}
+          <div className="group relative mt-16 mb-16">
+            <div className="absolute -inset-0.5 bg-gradient-to-b from-red-500 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300"></div>
+            <div className="relative flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 group-hover:border-red-500/30 rounded-xl overflow-hidden transition-all duration-300">
+              <div className="p-8">
+                <div className="flex justify-between items-start mb-6">
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium">
+                        Servicio de influencers
+                      </div>
+                      <div className="px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-500 text-xs font-medium animate-pulse">
+                        NUEVO
+                      </div>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors">
+                      Conectamos marcas con talentos ideales para potenciar su alcance y generar un impacto real
+                    </h3>
+                    <p className="text-zinc-400">
+                      Creamos estrategias de colaboración auténticas que fortalecen la identidad de tu marca y te acercan a tu público objetivo. ¡Haz crecer tu marca con el poder del influencer marketing!
+                    </p>
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
+                    <span className="text-xl">⭐️</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mt-8">
+                  <div className="text-center sm:text-left">
+                    <p className="text-zinc-500 text-sm mb-1">Precio</p>
+                    <p className="text-3xl font-bold text-white">Consultar</p>
+                  </div>
+                  <Button 
+                    className="w-full sm:w-auto whitespace-nowrap bg-zinc-800 hover:bg-red-600 text-white px-8 py-6 text-lg transition-colors"
+                    onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el servicio de influencers')}`}
+                  >
+                    Contactar ahora
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 bg-zinc-900/30 backdrop-blur-sm border border-zinc-800 rounded-xl p-8 w-full mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
                 <h3 className="text-xl font-bold text-white mb-2 text-left">¿Necesitas algo más personalizado?</h3>
