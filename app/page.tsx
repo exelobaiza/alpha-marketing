@@ -8,6 +8,7 @@ import { Check, Headphones, Phone, ChevronRight, Star, ArrowRight, MapPin, Mail,
 import { useState, useEffect, useRef } from "react"
 import { useGeoLocation } from './hooks/useGeoLocation'
 import { prices, currencyByRegion } from './config/prices'
+import { content } from './config/content'
 
 function VideoCarousel() {
   const [currentVideo, setCurrentVideo] = useState(0)
@@ -181,9 +182,10 @@ export default function Home() {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
-  // Get the current prices based on region
+  // Get the current prices and content based on region
   const currentPrices = prices[region]
   const currentCurrency = currencyByRegion[region]
+  const currentContent = content[region]
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -287,12 +289,10 @@ export default function Home() {
         <div className="container mx-auto px-6 md:px-12 lg:px-24 z-10 text-center md:text-center">
           <div className="max-w-3xl mx-auto space-y-8">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left md:text-center">
-              Potencia tu presencia
-              <br />
-              en redes sociales
+              {currentContent.hero.title}
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto text-left md:text-center">
-            Impulsamos la identidad de tu marca con estrategias digitales innovadoras y contenido de alto impacto y valor para llevar a tu marca al siguiente nivel
+              {currentContent.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-start md:justify-center">
               <Button 
@@ -302,14 +302,14 @@ export default function Home() {
                   section?.scrollIntoView({ behavior: 'smooth' })
                 }}
               >
-                VER PLANES
+                {currentContent.hero.cta.primary}
               </Button>
               <Button
                 variant="outline"
                 className="border-zinc-700 text-white hover:bg-zinc-800 px-8 py-6 rounded-xl text-lg font-medium"
                 onClick={() => window.location.href = "https://www.instagram.com/alphamarketing.agency/"}
               >
-                SEGUINOS EN INSTAGRAM
+                {currentContent.hero.cta.secondary}
               </Button>
             </div>
           </div>
@@ -346,11 +346,10 @@ export default function Home() {
               INVERSIÓN ESTRATÉGICA
             </div>
             <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left md:text-center">
-              Impulsa tu marca con nuestros planes
+              {currentContent.pricing.title}
             </h2>
             <p className="text-zinc-400 text-lg mb-8 text-left md:text-center">
-            Creamos experiencias y estrategias digitales que transforman a tus seguidores en una comunidad fidelizada para tu marca, 
-            tus productos y tus ventas. Elige el plan que se adapte mejor a tus objetivos
+              {currentContent.pricing.description}
             </p>
           </div>
 
@@ -365,7 +364,7 @@ export default function Home() {
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
                         Plan <br /> Básico
                       </h3>
-                      <p className="text-white">Para negocios que inician</p>
+                      <p className="text-white">{currentContent.pricing.plans.basic.description}</p>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">✨</span>
@@ -390,48 +389,16 @@ export default function Home() {
                 <div className="border-t border-zinc-800 p-8">
                   <p className="font-medium text-white mb-4">Incluye:</p>
                   <ul className="space-y-4">
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
-                        <span className="text-zinc-500 text-sm">Instagram, Facebook o TikTok</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">4 historias mensuales</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">2 posts mensuales</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">2 reels mensuales</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Informe mensual</span>
-                        <span className="text-zinc-500 text-sm">Métricas, evaluación y ajustes</span>
-                      </div>
-                    </li>
+                    {currentContent.pricing.plans.basic.features.map((feature: string, index: number) => (
+                      <li key={index} className="flex items-start">
+                        <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                          <Check className="text-emerald-500 h-3 w-3" />
+                        </div>
+                        <div>
+                          <span className="text-zinc-300 block">{feature}</span>
+                        </div>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -528,7 +495,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Plan Pro */}
+            {/* Plan Profesional */}
             <div className="group relative">
               <div className="absolute -inset-0.5 bg-gradient-to-b from-red-500 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300"></div>
               <div className="relative h-full flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 group-hover:border-red-500/30 rounded-xl overflow-hidden transition-all duration-300">
@@ -536,7 +503,7 @@ export default function Home() {
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
-                        Plan <br /> Pro
+                        Plan <br /> Profesional
                       </h3>
                       <p className="text-white">Para empresas establecidas</p>
                     </div>
@@ -554,7 +521,7 @@ export default function Home() {
 
                   <Button 
                     className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors"
-                    onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el Plan Pro')}`}
+                    onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el Plan Profesional')}`}
                   >
                     Comenzar ahora
                   </Button>
@@ -619,7 +586,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Plan Full */}
+            {/* Plan Premium */}
             <div className="group relative">
               <div className="absolute -inset-0.5 bg-gradient-to-b from-red-500 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300"></div>
               <div className="relative h-full flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 group-hover:border-red-500/30 rounded-xl overflow-hidden transition-all duration-300">
@@ -627,7 +594,7 @@ export default function Home() {
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
-                        Plan <br /> Full
+                        Plan <br /> Premium
                       </h3>
                       <p className="text-white">Gestión<br/> integral</p>
                     </div>
@@ -645,7 +612,7 @@ export default function Home() {
 
                   <Button 
                     className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors"
-                    onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el Plan Full')}`}
+                    onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el Plan Premium')}`}
                   >
                     Comenzar ahora
                   </Button>
@@ -727,10 +694,10 @@ export default function Home() {
                       </div>
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors">
-                      Conectamos marcas con talentos ideales para potenciar su alcance y generar un impacto real
+                      {currentContent.influencers.title}
                     </h3>
                     <p className="text-zinc-400">
-                      Creamos estrategias de colaboración auténticas que fortalecen la identidad de tu marca y te acercan a tu público objetivo. ¡Haz crecer tu marca con el poder del influencer marketing!
+                      {currentContent.influencers.description}
                     </p>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
@@ -986,12 +953,10 @@ export default function Home() {
                 Contacto
               </div>
               <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left">
-                Tienes alguna pregunta?
+                {currentContent.contact.title}
               </h2>
               <p className="text-zinc-400 mb-8 text-lg leading-relaxed text-left">
-              ¡Escríbenos y trabajemos juntos para potenciar tu marca y 
-              <br/> 
-              llevarla al siguiente nivel!
+                {currentContent.contact.description}
               </p>
               <div className="space-y-6">
                 {/* WhatsApp */}

@@ -1,39 +1,28 @@
-interface PlanPrices {
+import { Region } from '../hooks/useGeoLocation'
+
+interface PricingPlan {
   basic: string
   intermediate: string
   pro: string
   full: string
 }
 
-interface RegionalPrices {
-  LATAM: PlanPrices
-  EU: PlanPrices
-  OTHER: PlanPrices
-}
-
-export const prices: RegionalPrices = {
+export const prices: Record<Region, PricingPlan> = {
   LATAM: {
-    basic: '$150.000 ARS',
-    intermediate: '$250.000 ARS',
-    pro: '$350.000 ARS',
-    full: '$400.000 ARS',
+    basic: '25.000',
+    intermediate: '35.000',
+    pro: '45.000',
+    full: '55.000'
   },
-  EU: {
-    basic: '200€',
-    intermediate: '300€',
-    pro: '400€',
-    full: '500€',
-  },
-  OTHER: {
-    basic: '$150.000 ARS',
-    intermediate: '$250.000 ARS',
-    pro: '$350.000 ARS',
-    full: '$400.000 ARS',
-  },
+  EUROPE: {
+    basic: '149',
+    intermediate: '249',
+    pro: '349',
+    full: '449'
+  }
 }
 
-export const currencyByRegion = {
-  LATAM: '/mes',
-  EU: '/mes',
-  OTHER: '/mes',
+export const currencyByRegion: Record<Region, string> = {
+  LATAM: 'ARS',
+  EUROPE: '€'
 } 

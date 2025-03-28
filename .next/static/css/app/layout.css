@@ -1476,6 +1476,9 @@ video {
 .bg-emerald-500\/10 {
   background-color: rgb(16 185 129 / 0.1);
 }
+.bg-emerald-500\/20 {
+  background-color: rgb(16 185 129 / 0.2);
+}
 .bg-foreground {
   background-color: hsl(var(--foreground));
 }
@@ -1497,9 +1500,6 @@ video {
 }
 .bg-red-500\/10 {
   background-color: rgb(239 68 68 / 0.1);
-}
-.bg-red-500\/20 {
-  background-color: rgb(239 68 68 / 0.2);
 }
 .bg-red-500\/5 {
   background-color: rgb(239 68 68 / 0.05);
@@ -1538,9 +1538,6 @@ video {
 }
 .bg-zinc-900\/50 {
   background-color: rgb(24 24 27 / 0.5);
-}
-.bg-emerald-500\/20 {
-  background-color: rgb(16 185 129 / 0.2);
 }
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));

@@ -1,49 +1,42 @@
 import { useState, useEffect } from 'react'
 
-type Region = 'LATAM' | 'EU' | 'OTHER'
+export type Region = 'LATAM' | 'EUROPE'
 
 interface GeoLocationState {
   region: Region
   loading: boolean
-  error: string | null
 }
 
-export function useGeoLocation() {
+export function useGeoLocation(): GeoLocationState {
   const [state, setState] = useState<GeoLocationState>({
-    region: 'LATAM', // Default to LATAM
-    loading: true,
-    error: null,
+    region: 'LATAM',
+    loading: true
   })
 
   useEffect(() => {
-    const detectRegion = async () => {
+    const checkLocation = async () => {
       try {
         const response = await fetch('https://ipapi.co/json/')
         const data = await response.json()
         
-        // Define regions based on continent codes
-        // EU for Europe, SA/NA for Latin America
-        const region: Region = data.continent_code === 'EU' 
-          ? 'EU'
-          : ['SA', 'NA'].includes(data.continent_code) 
-            ? 'LATAM' 
-            : 'OTHER'
-
+        // Si el país está en Europa, usar precios de Europa
+        const europeanCountries = ['ES', 'FR', 'DE', 'IT', 'GB', 'PT']
+        const region = europeanCountries.includes(data.country_code) ? 'EUROPE' : 'LATAM'
+        
         setState({
           region,
-          loading: false,
-          error: null,
+          loading: false
         })
       } catch (error) {
-        setState(prev => ({
-          ...prev,
-          loading: false,
-          error: 'Error detecting region',
-        }))
+        console.error('Error fetching location:', error)
+        setState({
+          region: 'LATAM', // Default to LATAM if there's an error
+          loading: false
+        })
       }
     }
 
-    detectRegion()
+    checkLocation()
   }, [])
 
   return state
