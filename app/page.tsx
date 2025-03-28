@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Check, Headphones, Phone, ChevronRight, Star, ArrowRight, MapPin, Mail } from "lucide-react"
+import { Check, Headphones, Phone, ChevronRight, Star, ArrowRight, MapPin, Mail, Instagram } from "lucide-react"
 
 import { useState, useEffect, useRef } from "react"
 import { useGeoLocation } from './hooks/useGeoLocation'
@@ -25,18 +25,12 @@ function VideoCarousel() {
   const videos = [
     "/videos/mili1.mp4",
     "/videos/mili2.mp4",
-    "/videos/mili3.mp4",
-    "/videos/mili4.mp4",
-    "/videos/mili5.mp4"
   ]
 
   // Fallback images para cuando los videos fallan
   const fallbackImages = [
     "/placeholder.svg?height=600&width=300&text=Video+1",
     "/placeholder.svg?height=600&width=300&text=Video+2",
-    "/placeholder.svg?height=600&width=300&text=Video+3",
-    "/placeholder.svg?height=600&width=300&text=Video+4",
-    "/placeholder.svg?height=600&width=300&text=Video+5"
   ]
 
   // Manejar errores de video individuales
@@ -327,7 +321,8 @@ export default function Home() {
 
       {/* Reels Section */}
       <section className="py-24 bg-zinc-900 flex items-center justify-center">
-        <div className="container mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-center">
+        <div className="container mx-auto px-6 md:px-12 lg:px-24 flex flex-col items-center justify-center">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">¿Estás listo para hacer crecer tu negocio?</h2>
           <div className="flex justify-center items-center">
             <div className="relative w-[280px] h-[560px] border-[12px] border-zinc-800 rounded-[40px] overflow-hidden shadow-2xl shadow-red-500/10">
               <div className="absolute top-0 left-0 right-0 h-6 bg-zinc-800 z-10 rounded-t-lg"></div>
@@ -351,11 +346,11 @@ export default function Home() {
               INVERSIÓN ESTRATÉGICA
             </div>
             <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left md:text-center">
-              Potencia tu marca con nuestros planes
+              Impulsa tu marca con nuestros planes
             </h2>
             <p className="text-zinc-400 text-lg mb-8 text-left md:text-center">
-              No vendemos servicios, creamos experiencias digitales que transforman seguidores en comunidades y visitas
-              en ventas. Elige el plan que mejor se adapte a tus objetivos.
+            Creamos experiencias y estrategias digitales que transforman a tus seguidores en una comunidad fidelizada para tu marca, 
+            tus productos y tus ventas. Elige el plan que se adapte mejor a tus objetivos
             </p>
           </div>
 
@@ -401,7 +396,7 @@ export default function Home() {
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
-                        <span className="text-zinc-500 text-sm">Instagram y Facebook</span>
+                        <span className="text-zinc-500 text-sm">Instagram, Facebook o TikTok</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -419,7 +414,7 @@ export default function Home() {
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Informe mensual</span>
-                        <span className="text-zinc-500 text-sm">Métricas y recomendaciones</span>
+                        <span className="text-zinc-500 text-sm">Métricas, evaluación y ajustes</span>
                       </div>
                     </li>
                   </ul>
@@ -468,7 +463,7 @@ export default function Home() {
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
-                        <span className="text-zinc-500 text-sm">Instagram y Facebook</span>
+                        <span className="text-zinc-500 text-sm">Instagram, Facebook o TikTok</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -486,7 +481,7 @@ export default function Home() {
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Publicidad Digital</span>
-                        <span className="text-zinc-500 text-sm">Hasta $50.000 ARS/mes</span>
+                        <span className="text-zinc-500 text-sm">adaptada</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -494,8 +489,8 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">Consultoría Mensual</span>
-                        <span className="text-zinc-500 text-sm">Evaluación y ajustes</span>
+                        <span className="text-zinc-300 block">Informe mensual</span>
+                        <span className="text-zinc-500 text-sm">Métricas, evaluación y ajustes</span>
                       </div>
                     </li>
                   </ul>
@@ -544,7 +539,7 @@ export default function Home() {
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
-                        <span className="text-zinc-500 text-sm">Instagram y Facebook</span>
+                        <span className="text-zinc-500 text-sm">Instagram, Facebook o TikTok</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -562,7 +557,7 @@ export default function Home() {
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Publicidad Digital</span>
-                        <span className="text-zinc-500 text-sm">Hasta $50.000 ARS/mes</span>
+                        <span className="text-zinc-500 text-sm">adaptada</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -570,8 +565,8 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">Consultoría Mensual</span>
-                        <span className="text-zinc-500 text-sm">Evaluación y ajustes</span>
+                        <span className="text-zinc-300 block">Informe mensual</span>
+                        <span className="text-zinc-500 text-sm">Métricas, evaluación y ajustes</span>
                       </div>
                     </li>
                   </ul>
@@ -620,7 +615,7 @@ export default function Home() {
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
-                        <span className="text-zinc-500 text-sm">Instagram y Facebook</span>
+                        <span className="text-zinc-500 text-sm">Instagram, Facebook o TikTok</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -638,7 +633,7 @@ export default function Home() {
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Publicidad Digital</span>
-                        <span className="text-zinc-500 text-sm">Hasta $50.000 ARS/mes</span>
+                        <span className="text-zinc-500 text-sm">adaptada</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -646,8 +641,8 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">Consultoría Mensual</span>
-                        <span className="text-zinc-500 text-sm">Evaluación y ajustes</span>
+                        <span className="text-zinc-300 block">Informe mensual</span>
+                        <span className="text-zinc-500 text-sm">Métricas, evaluación y ajustes</span>
                       </div>
                     </li>
                   </ul>
@@ -660,11 +655,12 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
                 <h3 className="text-xl font-bold text-white mb-2 text-left">¿Necesitas algo más personalizado?</h3>
-                <p className="text-zinc-400 text-left">Creamos planes a medida para adaptarnos a tus necesidades específicas.</p>
+                <p className="text-zinc-400 text-left">Creamos planes con estrategias a medidas para adaptarnos a las necesidades de tu marca. 
+                </p>
               </div>
               <Button 
                 className="whitespace-nowrap bg-red-600 hover:bg-red-700 text-white"
-                onClick={() => window.location.href = 'mailto:contacto@tuempresa.com'}
+                onClick={() => window.location.href = 'https://wa.me/5493834058234'}
               >
                 Contactar para plan personalizado
               </Button>
@@ -678,12 +674,9 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-black to-transparent"></div>
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           <div className="text-center md:text-center mb-16">
-            <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium mb-4">
-              Portfolio
-            </div>
             <p className="text-red-500 mb-2 text-lg text-left md:text-center">Proyectos</p>
             <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left md:text-center">
-              Para nuestros clientes
+              Algunos clientes
             </h2>
           </div>
 
@@ -789,12 +782,12 @@ export default function Home() {
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2">
-              <div className="relative w-full aspect-square rounded-xl overflow-hidden">
+              <div className="relative w-full h-[1017px] rounded-xl overflow-hidden">
                 <Image
                   src="/images/mili.jpg"
                   alt="Milagros Murillo"
                   width={800}
-                  height={800}
+                  height={1000}
                   className="object-cover w-full h-full"
                   priority
                 />
@@ -807,7 +800,10 @@ export default function Home() {
               <h3 className="text-4xl font-bold mb-3 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left">
                 Milagros Murillo
               </h3>
-              <p className="text-red-500 text-xl mb-6 text-left">Fundadora y CEO - @milimurilloo</p>
+              <Link href="https://www.instagram.com/milimurilloo/" className="text-red-500 text-xl mb-6 text-left flex items-center gap-2">
+                Fundadora y CEO - @milimurilloo
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </Link>
               <div className="flex flex-wrap gap-3 mb-6">
                 <div className="px-4 py-2 bg-zinc-800 rounded-lg">
                   <p className="text-sm text-white">Content Creator</p>
@@ -818,19 +814,25 @@ export default function Home() {
                 <div className="px-4 py-2 bg-zinc-800 rounded-lg">
                   <p className="text-sm text-white">Community Manager</p>
                 </div>
+                <div className="px-4 py-2 bg-zinc-800 rounded-lg">
+                  <p className="text-sm text-white">Social Media Strategist</p>
+                </div>
               </div>
               <p className="text-zinc-300 text-lg leading-relaxed mb-6 text-left">
-                Desde hace años, me dedico a construir marcas con propósito en el mundo digital. Mi pasión por la
-                comunicación y el marketing me llevó a especializarme en estrategia digital, contenido creativo y
-                crecimiento de comunidades online.
+                Soy Milagros Murillo, fundadora y CEO de Alpha Marketing Agency. 
+                Desde hace más de 9 años pertenezco al mundo de las redes sociales y a lo largo de esos años me he dedicado a potenciar marcas, empresas y emprendedores, ayudándolos a construir su identidad digital, fidelizar sus clientes y generar conexiones reales que impulsan sus ventas a través de estrategia digital, contenido creativo y gestión de comunidades.
               </p>
               <p className="text-zinc-300 text-lg leading-relaxed mb-6 text-left">
-                Como fundadora de Alpha Marketing Agency, ayudo a negocios, emprendedores y empresas a potenciar su
-                presencia en redes sociales con estrategia, creatividad y visión. Creo en el poder de que una marca bien
-                construida y un mensaje auténtico genera conexiones reales en el mundo digital.
+                Como influencer, content creator, community manager y social media strategist, mi misión es ayudarte a crecer de manera real y orgánica.
+              </p>
+              <p className="text-zinc-300 text-lg leading-relaxed mb-6 text-left">
+                Y en Alpha Marketing Agency sabemos cómo lograrlo. Porque en Alpha no solo brindamos servicios de marketing, sino que nos involucramos con tu marca y tu historia. Creemos en generar conexiones reales, fidelizar clientes y transformar audiencias en comunidades activas, manteniendo siempre los valores y propósito de tu negocio.
+              </p>
+              <p className="text-zinc-300 text-lg leading-relaxed mb-6 text-left">
+                Si quieres que tu marca no solo tenga presencia, sino que también construya una comunidad y deje huellas, en Alpha Marketing Agency tenemos las herramientas y la experiencia para hacerlo posible.
               </p>
               <p className="text-red-500 text-lg italic mb-6 text-left">
-                "Alpha no es solo una agencia, es el reflejo de mi pasión por el marketing y la comunicación."
+                "No somos solo una agencia de marketing, somos el reflejo de la pasión por la comunicación real, auténtica y verdadera"
               </p>
             </div>
           </div>
@@ -853,11 +855,8 @@ export default function Home() {
                 <br />
                 pregunta?
               </h2>
-              <p className="text-red-500 text-xl mb-6 text-left">Te respondemos!</p>
               <p className="text-zinc-400 mb-8 text-lg leading-relaxed text-left">
-                ¡Estamos aquí para ayudarte a impulsar tu negocio al siguiente nivel! Si estás listo para mejorar tu
-                presencia digital, aumentar tus ventas o simplemente llevar tu marca a más personas, no dudes en
-                contactarnos. llámanos o escríbenos, ¡estamos listos para escucharte!
+              ¡Escríbenos y trabajemos juntos para potenciar tu marca y llevarla al siguiente nivel!
               </p>
               <div className="space-y-6">
                 {/* WhatsApp */}
