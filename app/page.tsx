@@ -405,7 +405,22 @@ export default function Home() {
                       </div>
                       <div>
                         <span className="text-zinc-300 block">4 historias mensuales</span>
-                        <span className="text-zinc-500 text-sm">2 post y 2 reels</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">2 posts mensuales</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">2 reels mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -471,8 +486,23 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">6 historias mensuales</span>
-                        <span className="text-zinc-500 text-sm">3 post y 3 reels</span>
+                        <span className="text-zinc-300 block">4 historias mensuales</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">3 posts mensuales</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">3 reels mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -547,8 +577,23 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">8 historias mensuales</span>
-                        <span className="text-zinc-500 text-sm">4 post y 4 reels</span>
+                        <span className="text-zinc-300 block">4 historias mensuales</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">4 posts mensuales</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">4 reels mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -623,8 +668,23 @@ export default function Home() {
                         <Check className="text-red-500 h-3 w-3" />
                       </div>
                       <div>
-                        <span className="text-zinc-300 block">8 historias mensuales</span>
-                        <span className="text-zinc-500 text-sm">4 post y 4 reels</span>
+                        <span className="text-zinc-300 block">4 historias mensuales</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">4 posts mensuales</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-red-500 h-3 w-3" />
+                      </div>
+                      <div>
+                        <span className="text-zinc-300 block">4 reels mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
