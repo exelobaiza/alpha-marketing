@@ -727,9 +727,6 @@ video {
 .top-full {
   top: 100%;
 }
-.top-1\/3 {
-  top: 33.333333%;
-}
 .z-0 {
   z-index: 0;
 }
@@ -780,6 +777,9 @@ video {
 }
 .mb-1 {
   margin-bottom: 0.25rem;
+}
+.mb-12 {
+  margin-bottom: 3rem;
 }
 .mb-16 {
   margin-bottom: 4rem;
@@ -840,9 +840,6 @@ video {
 }
 .mt-auto {
   margin-top: auto;
-}
-.mb-12 {
-  margin-bottom: 3rem;
 }
 .block {
   display: block;
@@ -932,6 +929,9 @@ video {
 .h-9 {
   height: 2.25rem;
 }
+.h-\[1017px\] {
+  height: 1017px;
+}
 .h-\[1px\] {
   height: 1px;
 }
@@ -958,21 +958,6 @@ video {
 }
 .h-svh {
   height: 100svh;
-}
-.h-\[800px\] {
-  height: 800px;
-}
-.h-\[900px\] {
-  height: 900px;
-}
-.h-\[1000px\] {
-  height: 1000px;
-}
-.h-\[1017px\] {
-  height: 1017px;
-}
-.h-\[993px\] {
-  height: 993px;
 }
 .max-h-96 {
   max-height: 24rem;
@@ -1221,6 +1206,9 @@ video {
 }
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
@@ -3297,11 +3285,6 @@ body {
   .md\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
-  }
-
-  .md\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
   }
 
   .md\:opacity-0 {

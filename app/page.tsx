@@ -681,17 +681,20 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[200px]">
-            {/* Betos - Large tile */}
-            <div className="relative group overflow-hidden rounded-xl md:col-span-2 md:row-span-2 shadow-lg shadow-red-500/5">
-              <Image
-                src="/placeholder.svg?height=600&width=600&text=BETOS"
-                alt="Betos"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+            {/* Power Feet - Large tile */}
+            <Link href="https://www.instagram.com/reel/DHT9AEyowz5/?igsh=N2F2NzBkZjcyYXBi" target="_blank" rel="noopener noreferrer"
+              className="relative group overflow-hidden rounded-xl md:col-span-2 md:row-span-2 shadow-lg shadow-red-500/5 cursor-pointer">
+              <video
+                src="/videos/powerFeet.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-600/20 backdrop-blur-sm">
-                <h3 className="text-3xl font-bold text-white mb-2">BETOS</h3>
+                <h3 className="text-3xl font-bold text-white mb-2">Power Feet</h3>
                 <div className="flex space-x-1">
                   <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
                   <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
@@ -701,73 +704,102 @@ export default function Home() {
                 </div>
               </div>
               <div className="absolute bottom-4 left-4 right-4">
-                <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-red-400 transition-colors">BETOS</h3>
+                <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-red-400 transition-colors">Power Feet</h3>
                 <p className="text-zinc-300 text-sm">Estrategia de marketing completa</p>
               </div>
-            </div>
+            </Link>
 
-            {/* La cafeteria */}
-            <div className="relative group overflow-hidden rounded-xl shadow-lg shadow-red-500/5">
-              <Image
-                src="/placeholder.svg?height=300&width=300&text=La+Cafeteria"
-                alt="La cafeteria"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+            {/* Temple Gym */}
+            <Link href="https://www.instagram.com/p/DHoz5olyJ8P/" target="_blank" rel="noopener noreferrer"
+              className="relative group overflow-hidden rounded-xl shadow-lg shadow-red-500/5 cursor-pointer">
+              <video
+                src="/videos/templeGym.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-600/20 backdrop-blur-sm">
-                <h3 className="text-xl font-bold text-white">la cafeteria</h3>
+                <h3 className="text-xl font-bold text-white">Temple Gym</h3>
               </div>
               <div className="absolute bottom-4 left-4 right-4">
                 <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors">
-                  la cafeteria
+                  Temple Gym
                 </h3>
                 <p className="text-zinc-300 text-sm">Branding & Social Media</p>
               </div>
-            </div>
+            </Link>
 
-            {/* La Panadería */}
-            <div className="relative group overflow-hidden rounded-xl shadow-lg shadow-red-500/5">
-              <Image
-                src="/placeholder.svg?height=300&width=300&text=La+Panaderia"
-                alt="La Panadería"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+            {/* Cono Pizza on Touch */}
+            <Link href="https://www.instagram.com/p/DHrhpiNNtZn/" target="_blank" rel="noopener noreferrer"
+              className="relative group overflow-hidden rounded-xl shadow-lg shadow-red-500/5 cursor-pointer">
+              <video
+                src="/videos/conoPizza.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-600/20 backdrop-blur-sm">
-                <h3 className="text-xl font-bold text-white">La Panadería</h3>
-                <p className="text-sm text-white">COSAS RICAS</p>
+                <h3 className="text-xl font-bold text-white">Cono Pizza on Touch</h3>
               </div>
               <div className="absolute bottom-4 left-4 right-4">
                 <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors">
-                  La Panadería
+                  Cono Pizza on Touch
                 </h3>
-                <p className="text-zinc-300 text-sm">COSAS RICAS</p>
+                <p className="text-zinc-300 text-sm">Marketing Digital</p>
               </div>
-            </div>
+            </Link>
 
-            {/* LEVELGYM - Wide tile */}
-            <div className="relative group overflow-hidden rounded-xl md:col-span-2 shadow-lg shadow-red-500/5">
-              <Image
-                src="/placeholder.svg?height=300&width=600&text=LEVELGYM"
-                alt="LEVELGYM"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+            {/* La Liga */}
+            <Link href="https://www.instagram.com/reel/DFMTRJ4J7-W/?igsh=MWI2d3M3dTl4ZGptbw==" target="_blank" rel="noopener noreferrer"
+              className="relative group overflow-hidden rounded-xl shadow-lg shadow-red-500/5 cursor-pointer">
+              <video
+                src="/videos/laLiga.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-600/20 backdrop-blur-sm">
-                <h3 className="text-2xl font-bold text-white">LEVELGYM</h3>
+                <h3 className="text-xl font-bold text-white">La Liga</h3>
               </div>
               <div className="absolute bottom-4 left-4 right-4">
-                <h3 className="text-2xl font-bold text-white group-hover:text-red-400 transition-colors">LEVELGYM</h3>
-                <p className="text-zinc-300 text-sm">Campaña digital & Contenido</p>
+                <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors">La Liga</h3>
+                <p className="text-zinc-300 text-sm">Gestión de Redes</p>
               </div>
-            </div>
+            </Link>
+
+            {/* La Pepa Madrid */}
+            <Link href="https://www.instagram.com/reel/DHZW8WBttI0/?igsh=MTZqanNlYjlzZ3pxaQ==" target="_blank" rel="noopener noreferrer"
+              className="relative group overflow-hidden rounded-xl shadow-lg shadow-red-500/5 cursor-pointer">
+              <video
+                src="/videos/LaPepaMadrid.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70"></div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-600/20 backdrop-blur-sm">
+                <h3 className="text-xl font-bold text-white">La Pepa Madrid</h3>
+              </div>
+              <div className="absolute bottom-4 left-4 right-4">
+                <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors">La Pepa Madrid</h3>
+                <p className="text-zinc-300 text-sm">Marketing & Contenido</p>
+              </div>
+            </Link>
           </div>
 
           <div className="flex justify-center mt-12">
-            <Link href="/proyectos">
+            <Link href="https://www.instagram.com/alphamarketing.agency/">
               <Button className="bg-red-600 hover:bg-red-700 text-white px-8">VER TODO</Button>
             </Link>
           </div>
