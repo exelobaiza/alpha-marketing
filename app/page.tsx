@@ -211,7 +211,7 @@ export default function Home() {
             <Link href="#planes" className="hover:text-red-500 transition-colors">
               Planes
             </Link>
-            <Link href="/proyectos" className="hover:text-red-500 transition-colors">
+            <Link href="#proyectos" className="hover:text-red-500 transition-colors">
               Proyectos
             </Link>
           </nav>
@@ -252,7 +252,7 @@ export default function Home() {
                   Planes
                 </Link>
                 <Link 
-                  href="/proyectos" 
+                  href="#proyectos" 
                   className="hover:text-red-500 transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -713,7 +713,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section - Bento Grid */}
-      <section className="py-24 bg-zinc-900 relative">
+      <section id="proyectos" className="py-24 bg-zinc-900 relative">
         <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-black to-transparent"></div>
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
           <div className="text-center md:text-center mb-16">
