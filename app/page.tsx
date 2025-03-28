@@ -292,7 +292,7 @@ export default function Home() {
               en redes sociales
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto text-left md:text-center">
-              Transformamos tu marca con estrategias digitales innovadoras y contenido de alto impacto
+            Impulsamos la identidad de tu marca con estrategias digitales innovadoras y contenido de alto impacto y valor para llevar a tu marca al siguiente nivel
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-start md:justify-center">
               <Button 
