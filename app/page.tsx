@@ -926,12 +926,12 @@ export default function Home() {
                 Contacto
               </div>
               <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left">
-                Tienes alguna
-                <br />
-                pregunta?
+                Tienes alguna pregunta?
               </h2>
               <p className="text-zinc-400 mb-8 text-lg leading-relaxed text-left">
-              ¡Escríbenos y trabajemos juntos para potenciar tu marca y llevarla al siguiente nivel!
+              ¡Escríbenos y trabajemos juntos para potenciar tu marca y 
+              <br/> 
+              llevarla al siguiente nivel!
               </p>
               <div className="space-y-6">
                 {/* WhatsApp */}
