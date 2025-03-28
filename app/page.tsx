@@ -365,7 +365,7 @@ export default function Home() {
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
                         Plan <br /> Básico
                       </h3>
-                      <p className="text-zinc-500">Para negocios que inician</p>
+                      <p className="text-white">Para negocios que inician</p>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">✨</span>
@@ -391,8 +391,8 @@ export default function Home() {
                   <p className="font-medium text-white mb-4">Incluye:</p>
                   <ul className="space-y-4">
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
@@ -400,32 +400,32 @@ export default function Home() {
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">4 historias mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">2 posts mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">2 reels mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Informe mensual</span>
@@ -447,7 +447,7 @@ export default function Home() {
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
                         Plan <br /> Intermedio
                       </h3>
-                      <p className="text-zinc-500">Para negocios en crecimiento</p>
+                      <p className="text-white">Para negocios en crecimiento</p>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">🚀</span>
@@ -473,8 +473,8 @@ export default function Home() {
                   <p className="font-medium text-white mb-4">Incluye:</p>
                   <ul className="space-y-4">
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
@@ -482,32 +482,32 @@ export default function Home() {
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">4 historias mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">3 posts mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">3 reels mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Publicidad Digital</span>
@@ -515,8 +515,8 @@ export default function Home() {
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Informe mensual</span>
@@ -538,7 +538,7 @@ export default function Home() {
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
                         Plan <br /> Pro
                       </h3>
-                      <p className="text-zinc-500">Para empresas establecidas</p>
+                      <p className="text-white">Para empresas establecidas</p>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">💎</span>
@@ -564,8 +564,8 @@ export default function Home() {
                   <p className="font-medium text-white mb-4">Incluye:</p>
                   <ul className="space-y-4">
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
@@ -573,32 +573,32 @@ export default function Home() {
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">4 historias mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">4 posts mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">4 reels mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Publicidad Digital</span>
@@ -606,8 +606,8 @@ export default function Home() {
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Informe mensual</span>
@@ -629,7 +629,7 @@ export default function Home() {
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
                         Plan <br /> Full
                       </h3>
-                      <p className="text-zinc-500">Gestión<br/> integral</p>
+                      <p className="text-white">Gestión<br/> integral</p>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">🌟</span>
@@ -655,8 +655,8 @@ export default function Home() {
                   <p className="font-medium text-white mb-4">Incluye:</p>
                   <ul className="space-y-4">
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
@@ -664,32 +664,32 @@ export default function Home() {
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">4 historias mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">4 posts mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">4 reels mensuales</span>
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Publicidad Digital</span>
@@ -697,8 +697,8 @@ export default function Home() {
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-red-500 h-3 w-3" />
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                        <Check className="text-emerald-500 h-3 w-3" />
                       </div>
                       <div>
                         <span className="text-zinc-300 block">Informe mensual</span>

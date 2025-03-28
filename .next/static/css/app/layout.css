@@ -1539,6 +1539,9 @@ video {
 .bg-zinc-900\/50 {
   background-color: rgb(24 24 27 / 0.5);
 }
+.bg-emerald-500\/20 {
+  background-color: rgb(16 185 129 / 0.2);
+}
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
