@@ -113,71 +113,71 @@ const latamContent: ContentType = {
 
 const europeContent: ContentType = {
   hero: {
-    title: "Potencia tu presencia en redes sociales",
-    description: "Impulsamos la identidad de tu marca con estrategias digitales innovadoras y contenido de alto impacto y valor para llevar tu marca al siguiente nivel",
+    title: "Haz que tu marca mole en redes sociales",
+    description: "Le damos caña a tu marca con estrategias digitales que son la leche y contenido de primera para que pegues el pelotazo",
     cta: {
-      primary: "VER PLANES",
-      secondary: "SÍGUENOS EN INSTAGRAM"
+      primary: "ÉCHALE UN VISTAZO",
+      secondary: "MIRA NUESTRO INSTA"
     }
   },
   pricing: {
-    title: "Impulsa tu marca con nuestros planes",
-    description: "Creamos experiencias y estrategias digitales que transforman a tus seguidores en una comunidad fidelizada para tu marca, tus productos y tus ventas. Elige el plan que mejor se adapte a tus objetivos",
+    title: "Planes que son un chollo",
+    description: "Montamos unas estrategias digitales que flipas para que tus seguidores se queden pillados con tu marca. Elige el plan que más te mole",
     plans: {
       basic: {
-        description: "Para negocios que empiezan",
+        description: "Para negocios que están empezando a currar",
         features: [
-          "Gestión de 1 plataforma",
-          "4 historias mensuales",
-          "2 publicaciones mensuales",
-          "2 reels mensuales",
-          "Informe mensual"
+          "Llevamos una red social",
+          "4 stories al mes que son la caña",
+          "2 posts guapos al mes",
+          "2 reels que flipas al mes",
+          "Informe mensual con todos los detalles"
         ]
       },
       intermediate: {
-        description: "Para negocios en crecimiento",
+        description: "Para negocios que van viento en popa",
         features: [
-          "Gestión de 1 plataforma",
-          "4 historias mensuales",
-          "3 publicaciones mensuales",
-          "3 reels mensuales",
-          "Publicidad Digital adaptada",
-          "Informe mensual"
+          "Llevamos una red social",
+          "4 stories al mes que son la caña",
+          "3 posts guapos al mes",
+          "3 reels que flipas al mes",
+          "Publicidad Digital de primera",
+          "Informe mensual con todos los detalles"
         ]
       },
       professional: {
-        description: "Para empresas consolidadas",
+        description: "Para empresas que ya son la leche",
         features: [
-          "Gestión de 1 plataforma",
-          "4 historias mensuales",
-          "4 publicaciones mensuales",
-          "4 reels mensuales",
-          "Publicidad Digital adaptada",
-          "Informe mensual"
+          "Llevamos una red social",
+          "4 stories al mes que son la caña",
+          "4 posts guapos al mes",
+          "4 reels que flipas al mes",
+          "Publicidad Digital de primera",
+          "Informe mensual con todos los detalles"
         ]
       },
       premium: {
-        description: "Gestión integral",
+        description: "El pack más guapo",
         features: [
-          "Gestión de 1 plataforma",
-          "4 historias mensuales",
-          "4 publicaciones mensuales",
-          "4 reels mensuales",
-          "Publicidad Digital adaptada",
-          "Informe mensual"
+          "Llevamos una red social",
+          "4 stories al mes que son la caña",
+          "4 posts guapos al mes",
+          "4 reels que flipas al mes",
+          "Publicidad Digital de primera",
+          "Informe mensual con todos los detalles"
         ]
       }
     },
-    cta: "Empezar ahora"
+    cta: "¡Vamos a por ello!"
   },
   influencers: {
-    title: "Conectamos marcas con talentos ideales para potenciar su alcance y generar un impacto real",
-    description: "Creamos estrategias de colaboración auténticas que fortalecen la identidad de tu marca y te acercan a tu público objetivo. ¡Haz crecer tu marca con el poder del influencer marketing!"
+    title: "Conectamos marcas con influencers que son un crack para dar el pelotazo juntos",
+    description: "Montamos colaboraciones que molan mazo y que pegan con tu marca como anillo al dedo. ¡Tu marca va a ser la leche con el marketing de influencers!"
   },
   contact: {
-    title: "¿Tienes alguna pregunta?",
-    description: "¡Escríbenos y trabajemos juntos para potenciar tu marca y llevarla al siguiente nivel!",
-    customPlan: "¿Necesitas algo más personalizado?"
+    title: "¿Te mola lo que ves?",
+    description: "¡Venga, ponte en contacto y curramos juntos para que tu marca sea la caña!",
+    customPlan: "¿Buscas algo más a tu rollo?"
   }
 };
 
