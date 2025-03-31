@@ -9,20 +9,20 @@ interface PricingPlan {
 
 export const prices: Record<Region, PricingPlan> = {
   LATAM: {
-    basic: '25.000',
-    intermediate: '35.000',
-    pro: '45.000',
-    full: '55.000'
+    basic: "150.000",
+    intermediate: "250.000",
+    pro: "350.000",
+    full: "400.000"
   },
   EUROPE: {
-    basic: '149',
-    intermediate: '249',
-    pro: '349',
-    full: '449'
+    basic: "200",
+    intermediate: "300",
+    pro: "400",
+    full: "500"
   }
 }
 
 export const currencyByRegion: Record<Region, string> = {
-  LATAM: 'ARS',
-  EUROPE: '€'
+  LATAM: "ARS",
+  EUROPE: "€"
 } 
