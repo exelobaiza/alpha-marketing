@@ -28,21 +28,23 @@ const TeamMembers = [
     quote: "No somos solo una agencia de marketing, somos el reflejo de la pasión por la comunicación real, auténtica y verdadera"
   },
   {
-    name: "Próximamente",
-    role: "Nuevo Talento",
-    instagram: "@alphamarketing.agency",
-    instagramUrl: "https://www.instagram.com/alphamarketing.agency/",
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000' viewBox='0 0 800 1000'%3E%3Crect width='800' height='1000' fill='%23262626'/%3E%3Ctext x='400' y='500' font-family='Arial' font-size='48' fill='%23666666' text-anchor='middle'%3EPróximamente%3C/text%3E%3C/svg%3E",
+    name: "Thomas Dylan Santoro",
+    role: "Director General",
+    instagram: "@thomasdylans",
+    instagramUrl: "https://www.instagram.com/thomasdylans?igsh=MWRydmh6emFhcWFjMg==",
+    image: "/images/tom.jpg",
     skills: [
-      "Nuevo Miembro",
-      "Próximamente"
+      "Director General",
+      "Productor Audiovisual",
+      "Dirección de Contenidos",
+      "Storytelling Visual"
     ],
     description: [
-      "Estamos en búsqueda de nuevos talentos para unirse a nuestro equipo.",
-      "¿Te gustaría ser parte de Alpha Marketing Agency?",
-      "Pronto anunciaremos nuevas incorporaciones al equipo."
+      "Con una sólida trayectoria en dirección de contenidos y producción audiovisual, Thomas Dylans es el responsable de liderar el área creativa y estratégica de Alpha Marketing Agency. Su rol abarca desde la conceptualización hasta la ejecución de campañas visuales, asegurando que cada pieza responda a objetivos concretos de comunicación y marketing.",
+      "Especialista en producción multimedia, storytelling visual y dirección de proyectos, Thomas trabaja en estrecha colaboración con el equipo de contenidos y estrategia digital para crear piezas que generen impacto, refuercen la identidad de marca y potencien el engagement en redes sociales y plataformas digitales.",
+      "Su enfoque combina creatividad, análisis y técnica, lo que permite desarrollar producciones audiovisuales alineadas con las tendencias del mercado y adaptadas a las necesidades específicas de cada cliente."
     ],
-    quote: "El talento atrae talento"
+    quote: "La creatividad es el puente entre la visión y el impacto"
   },
   {
     name: "Próximamente",
