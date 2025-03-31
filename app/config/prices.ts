@@ -9,16 +9,16 @@ interface PricingPlan {
 
 export const prices: Record<Region, PricingPlan> = {
   LATAM: {
-    basic: "150.000",
-    intermediate: "250.000",
-    pro: "350.000",
-    full: "400.000"
+    basic: "150.000/mes",
+    intermediate: "250.000/mes",
+    pro: "350.000/mes",
+    full: "400.000/mes"
   },
   EUROPE: {
-    basic: "200",
-    intermediate: "300",
-    pro: "400",
-    full: "500"
+    basic: "200/mes",
+    intermediate: "300/mes",
+    pro: "400/mes",
+    full: "500/mes"
   }
 }
 
