@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "./ui/button"
@@ -68,14 +68,6 @@ const TeamMembers = [
 export default function TeamCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const totalSlides = TeamMembers.length
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % totalSlides)
-    }, 5000) // Cambia cada 5 segundos
-
-    return () => clearInterval(timer)
-  }, [])
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides)
