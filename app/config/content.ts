@@ -113,8 +113,8 @@ const latamContent: ContentType = {
 
 const europeContent: ContentType = {
   hero: {
-    title: "Dale visibilidad a tu marca en redes sociales",
-    description: "Impulsamos la identidad de tu marca con estrategias digitales y contenido de calidad para dar el salto al siguiente nivel",
+    title: "Potencia tu presencia en redes sociales",
+    description: "Impulsamos la identidad de tu marca con estrategias digitales innovadoras y contenido de alto impacto y valor para llevar a tu marca al siguiente nivel",
     cta: {
       primary: "VER PLANES",
       secondary: "SÍGUENOS EN INSTAGRAM"
