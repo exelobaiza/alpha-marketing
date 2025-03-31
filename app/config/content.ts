@@ -157,7 +157,7 @@ const europeContent: ContentType = {
         ]
       },
       premium: {
-        description: "El pack más guapo",
+        description: "Gestión integral que te va a dejar flipando",
         features: [
           "Llevamos una red social",
           "4 stories al mes que son la caña",

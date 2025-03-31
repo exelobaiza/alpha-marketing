@@ -9,6 +9,7 @@ import { useState, useEffect, useRef } from "react"
 import { useGeoLocation } from './hooks/useGeoLocation'
 import { prices, currencyByRegion } from './config/prices'
 import { content } from './config/content'
+import TeamCarousel from "./components/TeamCarousel"
 
 function VideoCarousel() {
   const [currentVideo, setCurrentVideo] = useState(0)
@@ -354,7 +355,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6">
-            {/* Plan Básico */}
+            {/* Basic Plan */}
             <div className="group relative">
               <div className="absolute -inset-0.5 bg-gradient-to-b from-red-500 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300"></div>
               <div className="relative h-full flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 group-hover:border-red-500/30 rounded-xl overflow-hidden transition-all duration-300">
@@ -404,7 +405,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Plan Intermedio */}
+            {/* Intermediate Plan */}
             <div className="group relative">
               <div className="absolute -inset-0.5 bg-gradient-to-b from-red-500 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300"></div>
               <div className="relative h-full flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 group-hover:border-red-500/30 rounded-xl overflow-hidden transition-all duration-300">
@@ -414,7 +415,7 @@ export default function Home() {
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
                         Plan <br /> Intermedio
                       </h3>
-                      <p className="text-white">Para negocios en crecimiento</p>
+                      <p className="text-white">{currentContent.pricing.plans.intermediate.description}</p>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">🚀</span>
@@ -439,63 +440,22 @@ export default function Home() {
                 <div className="border-t border-zinc-800 p-8">
                   <p className="font-medium text-white mb-4">Incluye:</p>
                   <ul className="space-y-4">
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
-                        <span className="text-zinc-500 text-sm">Instagram, Facebook o TikTok</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">4 historias mensuales</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">3 posts mensuales</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">3 reels mensuales</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Publicidad Digital</span>
-                        <span className="text-zinc-500 text-sm">adaptada</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Informe mensual</span>
-                        <span className="text-zinc-500 text-sm">Métricas, evaluación y ajustes</span>
-                      </div>
-                    </li>
+                    {currentContent.pricing.plans.intermediate.features.map((feature: string, index: number) => (
+                      <li key={index} className="flex items-start">
+                        <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                          <Check className="text-emerald-500 h-3 w-3" />
+                        </div>
+                        <div>
+                          <span className="text-zinc-300 block">{feature}</span>
+                        </div>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
             </div>
 
-            {/* Plan Profesional */}
+            {/* Professional Plan */}
             <div className="group relative">
               <div className="absolute -inset-0.5 bg-gradient-to-b from-red-500 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300"></div>
               <div className="relative h-full flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 group-hover:border-red-500/30 rounded-xl overflow-hidden transition-all duration-300">
@@ -505,7 +465,7 @@ export default function Home() {
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
                         Plan <br /> Profesional
                       </h3>
-                      <p className="text-white">Para empresas establecidas</p>
+                      <p className="text-white">{currentContent.pricing.plans.professional.description}</p>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">💎</span>
@@ -530,63 +490,22 @@ export default function Home() {
                 <div className="border-t border-zinc-800 p-8">
                   <p className="font-medium text-white mb-4">Incluye:</p>
                   <ul className="space-y-4">
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
-                        <span className="text-zinc-500 text-sm">Instagram, Facebook o TikTok</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">4 historias mensuales</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">4 posts mensuales</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">4 reels mensuales</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Publicidad Digital</span>
-                        <span className="text-zinc-500 text-sm">adaptada</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Informe mensual</span>
-                        <span className="text-zinc-500 text-sm">Métricas, evaluación y ajustes</span>
-                      </div>
-                    </li>
+                    {currentContent.pricing.plans.professional.features.map((feature: string, index: number) => (
+                      <li key={index} className="flex items-start">
+                        <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                          <Check className="text-emerald-500 h-3 w-3" />
+                        </div>
+                        <div>
+                          <span className="text-zinc-300 block">{feature}</span>
+                        </div>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
             </div>
 
-            {/* Plan Premium */}
+            {/* Premium Plan */}
             <div className="group relative">
               <div className="absolute -inset-0.5 bg-gradient-to-b from-red-500 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl blur transition duration-300"></div>
               <div className="relative h-full flex flex-col bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 group-hover:border-red-500/30 rounded-xl overflow-hidden transition-all duration-300">
@@ -596,7 +515,7 @@ export default function Home() {
                       <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
                         Plan <br /> Premium
                       </h3>
-                      <p className="text-white">Gestión<br/> integral</p>
+                      <p className="text-white">{currentContent.pricing.plans.premium.description}</p>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">🌟</span>
@@ -621,57 +540,16 @@ export default function Home() {
                 <div className="border-t border-zinc-800 p-8">
                   <p className="font-medium text-white mb-4">Incluye:</p>
                   <ul className="space-y-4">
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Gestión de 1 plataforma</span>
-                        <span className="text-zinc-500 text-sm">Instagram, Facebook o TikTok</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">4 historias mensuales</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">4 posts mensuales</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">4 reels mensuales</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Publicidad Digital</span>
-                        <span className="text-zinc-500 text-sm">adaptada</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
-                        <Check className="text-emerald-500 h-3 w-3" />
-                      </div>
-                      <div>
-                        <span className="text-zinc-300 block">Informe mensual</span>
-                        <span className="text-zinc-500 text-sm">Métricas, evaluación y ajustes</span>
-                      </div>
-                    </li>
+                    {currentContent.pricing.plans.premium.features.map((feature: string, index: number) => (
+                      <li key={index} className="flex items-start">
+                        <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5 mr-3">
+                          <Check className="text-emerald-500 h-3 w-3" />
+                        </div>
+                        <div>
+                          <span className="text-zinc-300 block">{feature}</span>
+                        </div>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -882,62 +760,7 @@ export default function Home() {
       <section id="nosotros" className="py-24 bg-zinc-900 relative">
         <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-black to-transparent"></div>
         <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="w-full md:w-1/2">
-              <div className="relative w-full h-[1017px] rounded-xl overflow-hidden">
-                <Image
-                  src="/images/mili.jpg"
-                  alt="Milagros Murillo"
-                  width={800}
-                  height={1000}
-                  className="object-cover w-full h-full"
-                  priority
-                />
-              </div>
-            </div>
-            <div className="w-full md:w-1/2">
-              <div className="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-500 text-sm font-medium mb-4">
-                Nuestro Equipo
-              </div>
-              <h3 className="text-4xl font-bold mb-3 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left">
-                Milagros Murillo
-              </h3>
-              <Link href="https://www.instagram.com/milimurilloo/" className="text-red-500 text-xl mb-6 text-left flex items-center gap-2">
-                Fundadora y CEO - @milimurilloo
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              </Link>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <div className="px-4 py-2 bg-zinc-800 rounded-lg">
-                  <p className="text-sm text-white">Content Creator</p>
-                </div>
-                <div className="px-4 py-2 bg-zinc-800 rounded-lg">
-                  <p className="text-sm text-white">Influencer</p>
-                </div>
-                <div className="px-4 py-2 bg-zinc-800 rounded-lg">
-                  <p className="text-sm text-white">Community Manager</p>
-                </div>
-                <div className="px-4 py-2 bg-zinc-800 rounded-lg">
-                  <p className="text-sm text-white">Social Media Strategist</p>
-                </div>
-              </div>
-              <p className="text-zinc-300 text-lg leading-relaxed mb-6 text-left">
-                Soy Milagros Murillo, fundadora y CEO de Alpha Marketing Agency. 
-                Desde hace más de 9 años pertenezco al mundo de las redes sociales y a lo largo de esos años me he dedicado a potenciar marcas, empresas y emprendedores, ayudándolos a construir su identidad digital, fidelizar sus clientes y generar conexiones reales que impulsan sus ventas a través de estrategia digital, contenido creativo y gestión de comunidades.
-              </p>
-              <p className="text-zinc-300 text-lg leading-relaxed mb-6 text-left">
-                Como influencer, content creator, community manager y social media strategist, mi misión es ayudarte a crecer de manera real y orgánica.
-              </p>
-              <p className="text-zinc-300 text-lg leading-relaxed mb-6 text-left">
-                Y en Alpha Marketing Agency sabemos cómo lograrlo. Porque en Alpha no solo brindamos servicios de marketing, sino que nos involucramos con tu marca y tu historia. Creemos en generar conexiones reales, fidelizar clientes y transformar audiencias en comunidades activas, manteniendo siempre los valores y propósito de tu negocio.
-              </p>
-              <p className="text-zinc-300 text-lg leading-relaxed mb-6 text-left">
-                Si quieres que tu marca no solo tenga presencia, sino que también construya una comunidad y deje huellas, en Alpha Marketing Agency tenemos las herramientas y la experiencia para hacerlo posible.
-              </p>
-              <p className="text-red-500 text-lg italic mb-6 text-left">
-                "No somos solo una agencia de marketing, somos el reflejo de la pasión por la comunicación real, auténtica y verdadera"
-              </p>
-            </div>
-          </div>
+          <TeamCarousel />
         </div>
       </section>
 
