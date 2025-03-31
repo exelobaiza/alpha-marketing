@@ -47,21 +47,23 @@ const TeamMembers = [
     quote: "La creatividad es el puente entre la visión y el impacto"
   },
   {
-    name: "Próximamente",
-    role: "Nuevo Talento",
-    instagram: "@alphamarketing.agency",
-    instagramUrl: "https://www.instagram.com/alphamarketing.agency/",
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000' viewBox='0 0 800 1000'%3E%3Crect width='800' height='1000' fill='%23262626'/%3E%3Ctext x='400' y='500' font-family='Arial' font-size='48' fill='%23666666' text-anchor='middle'%3EPróximamente%3C/text%3E%3C/svg%3E",
+    name: "Guadalupe Visñovezky",
+    role: "Diseño Gráfico & Branding",
+    instagram: "@guadivisnovezky",
+    instagramUrl: "https://www.instagram.com/guadivisnovezky?igsh=MTBhY3FpYWhkeHg3Yw==",
+    image: "/images/guada.jpg",
     skills: [
-      "Nuevo Miembro",
-      "Próximamente"
+      "Diseño Gráfico",
+      "Branding",
+      "Comunicación Institucional",
+      "Marketing Digital"
     ],
     description: [
-      "Estamos en búsqueda de nuevos talentos para unirse a nuestro equipo.",
-      "¿Te gustaría ser parte de Alpha Marketing Agency?",
-      "Pronto anunciaremos nuevas incorporaciones al equipo."
+      "Licenciada en Comunicación Social con orientación en Comunicación Institucional y cuenta con una diplomatura en Marketing Digital. A lo largo de su carrera, se ha especializado en el mundo digital, combinando sus conocimientos en comunicación con el diseño gráfico para ayudar a las marcas a construir y transmitir su identidad de manera efectiva.",
+      "Su enfoque va más allá del diseño estético; comprende la estrategia detrás de cada imagen, asegurando que cada elemento visual comunique el mensaje adecuado. Con experiencia en redes sociales y branding, su objetivo es que cada pieza gráfica no solo sea atractiva, sino que refleje la esencia y los valores de la marca.",
+      "Si buscas una identidad visual que conecte con tu audiencia, Guadalupe está aquí para hacerlo posible."
     ],
-    quote: "El talento atrae talento"
+    quote: "El diseño es el embajador silencioso de tu marca"
   }
 ]
 
