@@ -6,30 +6,66 @@ import Link from "next/link"
 import { Button } from "./ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
-const TeamMember = {
-  name: "Milagros Murillo",
-  role: "Fundadora y CEO",
-  instagram: "@milimurilloo",
-  instagramUrl: "https://www.instagram.com/milimurilloo/",
-  image: "/images/mili.jpg",
-  skills: [
-    "Content Creator",
-    "Influencer",
-    "Community Manager",
-    "Social Media Strategist"
-  ],
-  description: [
-    "Soy Milagros Murillo, fundadora y CEO de Alpha Marketing Agency. Desde hace más de 9 años pertenezco al mundo de las redes sociales y a lo largo de esos años me he dedicado a potenciar marcas, empresas y emprendedores, ayudándolos a construir su identidad digital, fidelizar sus clientes y generar conexiones reales que impulsan sus ventas a través de estrategia digital, contenido creativo y gestión de comunidades.",
-    "Como influencer, content creator, community manager y social media strategist, mi misión es ayudarte a crecer de manera real y orgánica.",
-    "Y en Alpha Marketing Agency sabemos cómo lograrlo. Porque en Alpha no solo brindamos servicios de marketing, sino que nos involucramos con tu marca y tu historia. Creemos en generar conexiones reales, fidelizar clientes y transformar audiencias en comunidades activas, manteniendo siempre los valores y propósito de tu negocio.",
-    "Si quieres que tu marca no solo tenga presencia, sino que también construya una comunidad y deje huellas, en Alpha Marketing Agency tenemos las herramientas y la experiencia para hacerlo posible."
-  ],
-  quote: "No somos solo una agencia de marketing, somos el reflejo de la pasión por la comunicación real, auténtica y verdadera"
-}
+const TeamMembers = [
+  {
+    name: "Milagros Murillo",
+    role: "Fundadora y CEO",
+    instagram: "@milimurilloo",
+    instagramUrl: "https://www.instagram.com/milimurilloo/",
+    image: "/images/mili.jpg",
+    skills: [
+      "Content Creator",
+      "Influencer",
+      "Community Manager",
+      "Social Media Strategist"
+    ],
+    description: [
+      "Soy Milagros Murillo, fundadora y CEO de Alpha Marketing Agency. Desde hace más de 9 años pertenezco al mundo de las redes sociales y a lo largo de esos años me he dedicado a potenciar marcas, empresas y emprendedores, ayudándolos a construir su identidad digital, fidelizar sus clientes y generar conexiones reales que impulsan sus ventas a través de estrategia digital, contenido creativo y gestión de comunidades.",
+      "Como influencer, content creator, community manager y social media strategist, mi misión es ayudarte a crecer de manera real y orgánica.",
+      "Y en Alpha Marketing Agency sabemos cómo lograrlo. Porque en Alpha no solo brindamos servicios de marketing, sino que nos involucramos con tu marca y tu historia. Creemos en generar conexiones reales, fidelizar clientes y transformar audiencias en comunidades activas, manteniendo siempre los valores y propósito de tu negocio.",
+      "Si quieres que tu marca no solo tenga presencia, sino que también construya una comunidad y deje huellas, en Alpha Marketing Agency tenemos las herramientas y la experiencia para hacerlo posible."
+    ],
+    quote: "No somos solo una agencia de marketing, somos el reflejo de la pasión por la comunicación real, auténtica y verdadera"
+  },
+  {
+    name: "Próximamente",
+    role: "Nuevo Talento",
+    instagram: "@alphamarketing.agency",
+    instagramUrl: "https://www.instagram.com/alphamarketing.agency/",
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000' viewBox='0 0 800 1000'%3E%3Crect width='800' height='1000' fill='%23262626'/%3E%3Ctext x='400' y='500' font-family='Arial' font-size='48' fill='%23666666' text-anchor='middle'%3EPróximamente%3C/text%3E%3C/svg%3E",
+    skills: [
+      "Nuevo Miembro",
+      "Próximamente"
+    ],
+    description: [
+      "Estamos en búsqueda de nuevos talentos para unirse a nuestro equipo.",
+      "¿Te gustaría ser parte de Alpha Marketing Agency?",
+      "Pronto anunciaremos nuevas incorporaciones al equipo."
+    ],
+    quote: "El talento atrae talento"
+  },
+  {
+    name: "Próximamente",
+    role: "Nuevo Talento",
+    instagram: "@alphamarketing.agency",
+    instagramUrl: "https://www.instagram.com/alphamarketing.agency/",
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000' viewBox='0 0 800 1000'%3E%3Crect width='800' height='1000' fill='%23262626'/%3E%3Ctext x='400' y='500' font-family='Arial' font-size='48' fill='%23666666' text-anchor='middle'%3EPróximamente%3C/text%3E%3C/svg%3E",
+    skills: [
+      "Nuevo Miembro",
+      "Próximamente"
+    ],
+    description: [
+      "Estamos en búsqueda de nuevos talentos para unirse a nuestro equipo.",
+      "¿Te gustaría ser parte de Alpha Marketing Agency?",
+      "Pronto anunciaremos nuevas incorporaciones al equipo."
+    ],
+    quote: "El talento atrae talento"
+  }
+]
 
 export default function TeamCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const totalSlides = 3 // Repetimos el mismo componente 3 veces
+  const totalSlides = TeamMembers.length
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -58,18 +94,18 @@ export default function TeamCarousel() {
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
-          {[...Array(totalSlides)].map((_, index) => (
+          {TeamMembers.map((member, index) => (
             <div key={index} className="w-full flex-shrink-0">
               <div className="flex flex-col md:flex-row items-center gap-16">
                 <div className="w-full md:w-1/2">
                   <div className="relative w-full h-[1017px] rounded-xl overflow-hidden">
                     <Image
-                      src={TeamMember.image}
-                      alt={TeamMember.name}
+                      src={member.image}
+                      alt={member.name}
                       width={800}
                       height={1000}
                       className="object-cover w-full h-full"
-                      priority
+                      priority={index === 0}
                     />
                   </div>
                 </div>
@@ -78,26 +114,26 @@ export default function TeamCarousel() {
                     Nuestro Equipo
                   </div>
                   <h3 className="text-4xl font-bold mb-3 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left">
-                    {TeamMember.name}
+                    {member.name}
                   </h3>
-                  <Link href={TeamMember.instagramUrl} className="text-red-500 text-xl mb-6 text-left flex items-center gap-2">
-                    {TeamMember.role} - {TeamMember.instagram}
+                  <Link href={member.instagramUrl} className="text-red-500 text-xl mb-6 text-left flex items-center gap-2">
+                    {member.role} - {member.instagram}
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                   </Link>
                   <div className="flex flex-wrap gap-3 mb-6">
-                    {TeamMember.skills.map((skill, index) => (
-                      <div key={index} className="px-4 py-2 bg-zinc-800 rounded-lg">
+                    {member.skills.map((skill, skillIndex) => (
+                      <div key={skillIndex} className="px-4 py-2 bg-zinc-800 rounded-lg">
                         <p className="text-sm text-white">{skill}</p>
                       </div>
                     ))}
                   </div>
-                  {TeamMember.description.map((paragraph, index) => (
-                    <p key={index} className="text-zinc-300 text-lg leading-relaxed mb-6 text-left">
+                  {member.description.map((paragraph, paragraphIndex) => (
+                    <p key={paragraphIndex} className="text-zinc-300 text-lg leading-relaxed mb-6 text-left">
                       {paragraph}
                     </p>
                   ))}
                   <p className="text-red-500 text-lg italic mb-6 text-left">
-                    {TeamMember.quote}
+                    {member.quote}
                   </p>
                 </div>
               </div>
@@ -131,7 +167,7 @@ export default function TeamCarousel() {
       {/* Indicadores */}
       <div className="absolute -bottom-8 left-0 right-0">
         <div className="flex justify-center gap-3">
-          {[...Array(totalSlides)].map((_, index) => (
+          {TeamMembers.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
