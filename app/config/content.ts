@@ -114,7 +114,7 @@ const latamContent: ContentType = {
 const europeContent: ContentType = {
   hero: {
     title: "Potencia tu presencia en redes sociales",
-    description: "Impulsamos la identidad de tu marca con estrategias digitales innovadoras y contenido de alto impacto y valor para llevar a tu marca al siguiente nivel",
+    description: "Creamos experiencias y estrategias digitales que convierten a tus seguidores en una comunidad fiel a tu marca. Elige el plan que mejor se adapte a tus objetivos",
     cta: {
       primary: "VER PLANES",
       secondary: "SÍGUENOS EN INSTAGRAM"
@@ -125,7 +125,7 @@ const europeContent: ContentType = {
     description: "Creamos experiencias y estrategias digitales que transforman a tus seguidores en una comunidad fidelizada para tu marca. Elige el plan que mejor se adapte a tus objetivos",
     plans: {
       basic: {
-        description: "Para negocios que están arrancando",
+        description: "Ideal para negocios que están comenzando",
         features: [
           "Gestión de 1 red social",
           "4 stories al mes",
@@ -146,7 +146,7 @@ const europeContent: ContentType = {
         ]
       },
       professional: {
-        description: "Para empresas establecidas",
+        description: "Ideal para empresas consolidadas",
         features: [
           "Gestión de 1 red social",
           "4 stories al mes",
@@ -157,7 +157,7 @@ const europeContent: ContentType = {
         ]
       },
       premium: {
-        description: "Gestión integral y personalizada",
+        description: "Para empresas que requieren mayor personalización",
         features: [
           "Gestión de 1 red social",
           "4 stories al mes",
@@ -171,8 +171,8 @@ const europeContent: ContentType = {
     cta: "Comenzar ahora"
   },
   influencers: {
-    title: "Conectamos marcas con influencers ideales para potenciar su alcance y generar un impacto real",
-    description: "Creamos estrategias de colaboración auténticas que fortalecen la identidad de tu marca y te acercan a tu público objetivo. ¡Haz crecer tu marca con el poder del influencer marketing!"
+    title: "Conectamos marcas con los influencers idóneos para potenciar su alcance y generar un impacto real",
+    description: "Desarrollamos estrategias de colaboración auténticas que fortalecen la identidad de tu marca y conectan con tu público objetivo. ¡Haz crecer tu marca con el poder del influencer marketing!"
   },
   contact: {
     title: "¿Te gustaría saber más?",

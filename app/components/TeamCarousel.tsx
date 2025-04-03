@@ -20,10 +20,10 @@ const TeamMembers = [
       "Social Media Strategist"
     ],
     description: [
-      "Soy Milagros Murillo, fundadora y CEO de Alpha Marketing Agency. Desde hace más de 9 años pertenezco al mundo de las redes sociales y a lo largo de esos años me he dedicado a potenciar marcas, empresas y emprendedores, ayudándolos a construir su identidad digital, fidelizar sus clientes y generar conexiones reales que impulsan sus ventas a través de estrategia digital, contenido creativo y gestión de comunidades.",
-      "Como influencer, content creator, community manager y social media strategist, mi misión es ayudarte a crecer de manera real y orgánica.",
-      "Y en Alpha Marketing Agency sabemos cómo lograrlo. Porque en Alpha no solo brindamos servicios de marketing, sino que nos involucramos con tu marca y tu historia. Creemos en generar conexiones reales, fidelizar clientes y transformar audiencias en comunidades activas, manteniendo siempre los valores y propósito de tu negocio.",
-      "Si quieres que tu marca no solo tenga presencia, sino que también construya una comunidad y deje huellas, en Alpha Marketing Agency tenemos las herramientas y la experiencia para hacerlo posible."
+      "Soy Milagros Murillo, fundadora y CEO de Alpha Marketing Agency. Desde hace más de nueve años, me he dedicado al mundo de las redes sociales, ayudando a marcas, empresas y emprendedores a potenciar su identidad digital, fidelizar clientes y generar conexiones auténticas que impulsen sus ventas.",
+      "A través de estrategias digitales, contenido creativo y una gestión efectiva de comunidades, he trabajado como influencer, creadora de contenido, community manager y estratega en social media, siempre con el objetivo de lograr un crecimiento real y orgánico.",
+      "En Alpha Marketing Agency, no solo ofrecemos servicios de marketing, sino que nos involucramos con cada marca y su historia. Creemos en la importancia de construir relaciones genuinas, transformar audiencias en comunidades activas y mantener siempre los valores y el propósito de cada negocio.",
+      "Si buscas que tu marca no solo tenga presencia, sino que construya una comunidad y genere un impacto real, en Alpha Marketing Agency tenemos la experiencia y las herramientas para hacerlo posible."
     ],
     quote: "No somos solo una agencia de marketing, somos el reflejo de la pasión por la comunicación real, auténtica y verdadera"
   },
@@ -40,9 +40,9 @@ const TeamMembers = [
       "Storytelling Visual"
     ],
     description: [
-      "Con una sólida trayectoria en dirección de contenidos y producción audiovisual, Thomas Dylans es el responsable de liderar el área creativa y estratégica de Alpha Marketing Agency. Su rol abarca desde la conceptualización hasta la ejecución de campañas visuales, asegurando que cada pieza responda a objetivos concretos de comunicación y marketing.",
-      "Especialista en producción multimedia, storytelling visual y dirección de proyectos, Thomas trabaja en estrecha colaboración con el equipo de contenidos y estrategia digital para crear piezas que generen impacto, refuercen la identidad de marca y potencien el engagement en redes sociales y plataformas digitales.",
-      "Su enfoque combina creatividad, análisis y técnica, lo que permite desarrollar producciones audiovisuales alineadas con las tendencias del mercado y adaptadas a las necesidades específicas de cada cliente."
+      "Con una sólida trayectoria en dirección de contenidos y producción audiovisual, Thomas Dylans lidera el área creativa y estratégica de Alpha Marketing Agency. Su labor abarca desde la conceptualización hasta la ejecución de campañas visuales, asegurando que cada pieza cumpla con objetivos específicos de comunicación y marketing.",
+      "Especialista en producción multimedia, storytelling visual y dirección de proyectos, Thomas trabaja en estrecha colaboración con el equipo de contenidos y estrategia digital para crear piezas que impacten, refuercen la identidad de marca y potencien el engagement en redes sociales y plataformas digitales.",
+      "Su enfoque equilibra creatividad, análisis y técnica, permitiéndole desarrollar producciones audiovisuales alineadas con las últimas tendencias del mercado y adaptadas a las necesidades específicas de cada cliente."
     ],
     quote: "La creatividad es el puente entre la visión y el impacto"
   },
@@ -59,8 +59,8 @@ const TeamMembers = [
       "Marketing Digital"
     ],
     description: [
-      "Licenciada en Comunicación Social con orientación en Comunicación Institucional y cuenta con una diplomatura en Marketing Digital. A lo largo de su carrera, se ha especializado en el mundo digital, combinando sus conocimientos en comunicación con el diseño gráfico para ayudar a las marcas a construir y transmitir su identidad de manera efectiva.",
-      "Su enfoque va más allá del diseño estético; comprende la estrategia detrás de cada imagen, asegurando que cada elemento visual comunique el mensaje adecuado. Con experiencia en redes sociales y branding, su objetivo es que cada pieza gráfica no solo sea atractiva, sino que refleje la esencia y los valores de la marca.",
+      "Licenciada en Comunicación Social, con orientación en Comunicación Institucional y una diplomatura en Marketing Digital. A lo largo de su carrera, se ha especializado en el ámbito digital, combinando sus conocimientos en comunicación con el diseño gráfico para ayudar a las marcas a construir y proyectar su identidad de manera efectiva.",
+      "Su enfoque va más allá de lo estético: entiende la estrategia detrás de cada imagen, asegurando que cada elemento visual comunique el mensaje adecuado. Con experiencia en redes sociales y branding, su objetivo es que cada pieza gráfica no solo sea visualmente atractiva, sino que refleje la esencia y los valores de la marca.",
       "Si buscas una identidad visual que conecte con tu audiencia, Guadalupe está aquí para hacerlo posible."
     ],
     quote: "El diseño es el embajador silencioso de tu marca"

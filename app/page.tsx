@@ -383,7 +383,7 @@ export default function Home() {
                     className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors"
                     onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el Plan Básico')}`}
                   >
-                    Comenzar ahora
+                    Contacta ahora
                   </Button>
                 </div>
 
@@ -433,7 +433,7 @@ export default function Home() {
                     className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors"
                     onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el Plan Intermedio')}`}
                   >
-                    Comenzar ahora
+                    Contacta ahora
                   </Button>
                 </div>
 
@@ -483,7 +483,7 @@ export default function Home() {
                     className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors"
                     onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el Plan Profesional')}`}
                   >
-                    Comenzar ahora
+                    Contacta ahora
                   </Button>
                 </div>
 
@@ -533,7 +533,7 @@ export default function Home() {
                     className="w-full py-6 bg-zinc-800 hover:bg-red-600 text-white transition-colors"
                     onClick={() => window.location.href = `https://wa.me/5493834058234?text=${encodeURIComponent('¡Hola! Me interesa el Plan Premium')}`}
                   >
-                    Comenzar ahora
+                    Contacta ahora
                   </Button>
                 </div>
 
@@ -603,14 +603,13 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
                 <h3 className="text-xl font-bold text-white mb-2 text-left">¿Necesitas algo más personalizado?</h3>
-                <p className="text-zinc-400 text-left">Creamos planes con estrategias a medidas para adaptarnos a las necesidades de tu marca. 
-                </p>
+                <p className="text-zinc-400 text-left">Diseñamos planes estratégicos a medida para adaptarnos a las necesidades de tu marca.</p>
               </div>
               <Button 
                 className="whitespace-nowrap bg-red-600 hover:bg-red-700 text-white"
                 onClick={() => window.location.href = 'https://wa.me/5493834058234'}
               >
-                Contactar para plan personalizado
+                Contáctanos para plan personalizado
               </Button>
             </div>
           </div>
@@ -624,7 +623,7 @@ export default function Home() {
           <div className="text-center md:text-center mb-16">
             <p className="text-red-500 mb-2 text-lg text-left md:text-center">Proyectos</p>
             <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent text-left md:text-center">
-              Algunos clientes
+              Proyectos destacados
             </h2>
           </div>
 
@@ -779,7 +778,7 @@ export default function Home() {
                 {currentContent.contact.title}
               </h2>
               <p className="text-zinc-400 mb-8 text-lg leading-relaxed text-left">
-                {currentContent.contact.description}
+                ¡Ponte en contacto con nosotros y llevaremos tu marca al siguiente nivel!
               </p>
               <div className="space-y-6">
                 {/* WhatsApp */}
