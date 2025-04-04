@@ -114,7 +114,7 @@ const latamContent: ContentType = {
 const europeContent: ContentType = {
   hero: {
     title: "Potencia tu presencia en redes sociales",
-    description: "Creamos experiencias y estrategias digitales que convierten a tus seguidores en una comunidad fiel a tu marca. Elige el plan que mejor se adapte a tus objetivos",
+    description: "Diseñamos estrategias digitales que convierten a tus seguidores en una comunidad fidelizada y comprometida con tu marca. Encuentra el plan ideal para alcanzar tus objetivos.",
     cta: {
       primary: "VER PLANES",
       secondary: "SÍGUENOS EN INSTAGRAM"
