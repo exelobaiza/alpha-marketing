@@ -64,6 +64,26 @@ const TeamMembers = [
       "Si buscas una identidad visual que conecte con tu audiencia, Guadalupe está aquí para hacerlo posible."
     ],
     quote: "El diseño es el embajador silencioso de tu marca"
+  },
+  {
+    name: "Andrés Soria",
+    role: "UI/UX & Web Designer",
+    instagram: "@ux_soria",
+    instagramUrl: "https://www.instagram.com/ux_soria/",
+    image: "/images/andres.jpeg",
+    skills: [
+      "UI/UX Designer",
+      "Web Design",
+      "Product Design",
+      "Visual Identity",
+      "Creative Strategy"
+    ],
+    description: [
+      "Andrés es un diseñador UI/UX y web autodidacta con más de seis años de experiencia creando experiencias digitales centradas en el usuario. A lo largo de su carrera, ha acompañado a emprendedores, startups y agencias a transformar ideas en productos digitales funcionales, escalables y visualmente memorables.",
+      "Especializado en el diseño de interfaces, desarrollo de MVPs y construcción de identidades visuales para productos digitales, combina creatividad, estrategia y una mirada centrada en el detalle para diseñar soluciones que no solo se vean bien, sino que también funcionen. Su enfoque pone al usuario en el centro, con especial atención a la coherencia visual, la jerarquía de información y la facilidad de uso en distintos dispositivos y contextos.",
+      "En Alpha Marketing Agency, aporta una visión integral al diseño digital, colaborando estrechamente con los equipos de contenido, estrategia y branding para garantizar que cada marca no solo tenga presencia online, sino que ofrezca experiencias intuitivas, coherentes y diferenciales."
+    ],
+    quote: "Design is not just what it looks like and feels like. Design is how it works."
   }
 ]
 

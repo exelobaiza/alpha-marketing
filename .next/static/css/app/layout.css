@@ -3334,10 +3334,6 @@ body {
     text-align: center;
   }
 
-  .md\:text-right {
-    text-align: right;
-  }
-
   .md\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
