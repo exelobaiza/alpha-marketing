@@ -367,7 +367,7 @@ export default function Home() {
                       </h3>
                       <p className="text-white">{currentContent.pricing.plans.basic.description}</p>
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">✨</span>
                     </div>
                   </div>
@@ -417,7 +417,7 @@ export default function Home() {
                       </h3>
                       <p className="text-white">{currentContent.pricing.plans.intermediate.description}</p>
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">🚀</span>
                     </div>
                   </div>
@@ -467,7 +467,7 @@ export default function Home() {
                       </h3>
                       <p className="text-white">{currentContent.pricing.plans.professional.description}</p>
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">💎</span>
                     </div>
                   </div>
@@ -517,7 +517,7 @@ export default function Home() {
                       </h3>
                       <p className="text-white">{currentContent.pricing.plans.premium.description}</p>
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
                       <span className="text-xl">🌟</span>
                     </div>
                   </div>
