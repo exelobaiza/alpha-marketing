@@ -764,44 +764,7 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* La Liga */}
-            <Link href="https://www.instagram.com/reel/DFMTRJ4J7-W/?igsh=MWI2d3M3dTl4ZGptbw==" target="_blank" rel="noopener noreferrer"
-              className="relative group overflow-hidden rounded-xl shadow-lg shadow-red-500/5 cursor-pointer">
-              <div className="relative w-full h-full">
-                <video
-                  src="/videos/laLiga.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  onError={(e) => {
-                    const target = e.target as HTMLVideoElement;
-                    target.style.display = 'none';
-                    const fallbackDiv = target.parentElement?.querySelector('.video-fallback');
-                    if (fallbackDiv) {
-                      fallbackDiv.classList.remove('hidden');
-                    }
-                  }}
-                />
-                <div className="video-fallback hidden absolute inset-0">
-                  <Image
-                    src="/placeholder.svg?height=400&width=400&text=La+Liga"
-                    alt="La Liga thumbnail"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70"></div>
-              </div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-red-600/20 backdrop-blur-sm">
-                <h3 className="text-xl font-bold text-white">La Liga</h3>
-              </div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors">La Liga</h3>
-                <p className="text-zinc-300 text-sm">Gestión de Redes</p>
-              </div>
-            </Link>
+
 
             {/* La Pepa Madrid */}
             <Link href="https://www.instagram.com/reel/DHZW8WBttI0/?igsh=MTZqanNlYjlzZ3pxaQ==" target="_blank" rel="noopener noreferrer"

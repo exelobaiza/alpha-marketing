@@ -67,34 +67,34 @@ const latamContent: ContentType = {
       intermediate: {
         description: "Para negocios en crecimiento",
         features: [
-          "Gestión de 1 plataforma",
-          "4 historias mensuales",
-          "3 posts mensuales",
-          "3 reels mensuales",
-          "Publicidad Digital adaptada",
-          "Informe mensual"
+          "Gestión de 1 red social",
+          "5 historias al mes",
+          "3 posts al mes",
+          "3 reels al mes",
+          "Publicidad digital adaptada",
+          "Informe mensual detallado"
         ]
       },
       professional: {
         description: "Para empresas establecidas",
         features: [
-          "Gestión de 1 plataforma",
-          "4 historias mensuales",
-          "4 posts mensuales",
-          "4 reels mensuales",
-          "Publicidad Digital adaptada",
-          "Informe mensual"
+          "Gestión de 1 red social",
+          "6 historias al mes",
+          "4 posts al mes",
+          "4 reels al mes",
+          "Publicidad digital adaptada",
+          "Informe mensual detallado"
         ]
       },
       premium: {
         description: "Gestión integral",
         features: [
-          "Gestión de 1 plataforma",
-          "4 historias mensuales",
-          "4 posts mensuales",
-          "4 reels mensuales",
-          "Publicidad Digital adaptada",
-          "Informe mensual"
+          "Gestión de 1 red social",
+          "8 historias al mes",
+          "5 posts al mes",
+          "5 reels al mes",
+          "Publicidad digital adaptada",
+          "Informe mensual detallado"
         ]
       }
     },
@@ -138,10 +138,10 @@ const europeContent: ContentType = {
         description: "Para negocios en crecimiento",
         features: [
           "Gestión de 1 red social",
-          "4 stories al mes",
+          "5 historias al mes",
           "3 posts al mes",
           "3 reels al mes",
-          "Publicidad Digital adaptada",
+          "Publicidad digital adaptada",
           "Informe mensual detallado"
         ]
       },
@@ -149,10 +149,10 @@ const europeContent: ContentType = {
         description: "Ideal para empresas consolidadas",
         features: [
           "Gestión de 1 red social",
-          "4 stories al mes",
+          "6 historias al mes",
           "4 posts al mes",
           "4 reels al mes",
-          "Publicidad Digital adaptada",
+          "Publicidad digital adaptada",
           "Informe mensual detallado"
         ]
       },
@@ -160,10 +160,10 @@ const europeContent: ContentType = {
         description: "Para empresas que requieren mayor personalización",
         features: [
           "Gestión de 1 red social",
-          "4 stories al mes",
-          "4 posts al mes",
-          "4 reels al mes",
-          "Publicidad Digital adaptada",
+          "8 historias al mes",
+          "5 posts al mes",
+          "5 reels al mes",
+          "Publicidad digital adaptada",
           "Informe mensual detallado"
         ]
       }
