@@ -1221,6 +1221,9 @@ video {
 .auto-rows-\[200px\] {
   grid-auto-rows: 200px;
 }
+.auto-rows-\[150px\] {
+  grid-auto-rows: 150px;
+}
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -3274,6 +3277,10 @@ body {
     grid-row: span 2 / span 2;
   }
 
+  .md\:row-span-3 {
+    grid-row: span 3 / span 3;
+  }
+
   .md\:mb-0 {
     margin-bottom: 0px;
   }
@@ -3304,10 +3311,6 @@ body {
 
   .md\:max-w-\[420px\] {
     max-width: 420px;
-  }
-
-  .md\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .md\:grid-cols-3 {
