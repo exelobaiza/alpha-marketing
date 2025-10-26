@@ -25,8 +25,8 @@ function VideoCarousel() {
 
   // Usando los videos locales
   const videos = [
-    "/videos/mili1.mp4",
-    "/videos/mili2.mp4",
+    "https://res.cloudinary.com/dcy607q9x/video/upload/v1761496800/mili1_rx9h0h.mp4",
+    "https://res.cloudinary.com/dcy607q9x/video/upload/v1761496800/mili2_sdw2g3.mp4",
   ]
 
   // Fallback images para cuando los videos fallan
@@ -289,7 +289,7 @@ export default function Home() {
               }}
             >
               <source
-                src="/videos/background.mp4"
+                src="https://res.cloudinary.com/dcy607q9x/video/upload/v1761496802/background_gan0mh.mp4"
                 type="video/mp4"
               />
             </video>
@@ -652,7 +652,7 @@ export default function Home() {
               className="relative group overflow-hidden rounded-xl md:col-span-2 md:row-span-2 shadow-lg shadow-red-500/5 cursor-pointer">
               <div className="relative w-full h-full">
                 <video
-                  src="/videos/bella.mp4"
+                  src="https://res.cloudinary.com/dcy607q9x/video/upload/v1761496801/bella_aqkylv.mp4"
                   autoPlay
                   muted
                   loop
@@ -691,7 +691,7 @@ export default function Home() {
               className="relative group overflow-hidden rounded-xl shadow-lg shadow-red-500/5 cursor-pointer">
               <div className="relative w-full h-full">
                 <video
-                  src="/videos/templeGym.mp4"
+                  src="https://res.cloudinary.com/dcy607q9x/video/upload/v1761496808/templeGym_tfgiqt.mp4"
                   autoPlay
                   muted
                   loop
@@ -730,7 +730,7 @@ export default function Home() {
               className="relative group overflow-hidden rounded-xl shadow-lg shadow-red-500/5 cursor-pointer">
               <div className="relative w-full h-full">
                 <video
-                  src="/videos/conoPizza.mp4"
+                  src="https://res.cloudinary.com/dcy607q9x/video/upload/v1761496800/conoPizza_d88by8.mp4"
                   autoPlay
                   muted
                   loop
@@ -769,7 +769,7 @@ export default function Home() {
               className="relative group overflow-hidden rounded-xl md:col-span-2 md:row-span-3 shadow-lg shadow-red-500/5 cursor-pointer">
               <div className="relative w-full h-full">
                 <video
-                  src="/videos/bags.mp4"
+                  src="https://res.cloudinary.com/dcy607q9x/video/upload/v1761496801/bags_gqbrbo.mp4"
                   autoPlay
                   muted
                   loop
@@ -808,7 +808,7 @@ export default function Home() {
               className="relative group overflow-hidden rounded-xl shadow-lg shadow-red-500/5 cursor-pointer">
               <div className="relative w-full h-full">
                 <video
-                  src="/videos/sanguchito.mp4"
+                  src="https://res.cloudinary.com/dcy607q9x/video/upload/v1761496800/sanguchito_tbo4xs.mp4"
                   autoPlay
                   muted
                   loop
@@ -847,7 +847,7 @@ export default function Home() {
               className="relative group overflow-hidden rounded-xl shadow-lg shadow-red-500/5 cursor-pointer">
               <div className="relative w-full h-full">
                 <video
-                  src="/videos/LaPepaMadrid.mp4"
+                  src="https://res.cloudinary.com/dcy607q9x/video/upload/v1761496802/LaPepaMadrid_muhvip.mp4"
                   autoPlay
                   muted
                   loop
@@ -886,7 +886,7 @@ export default function Home() {
               className="relative group overflow-hidden rounded-xl shadow-lg shadow-red-500/5 cursor-pointer">
               <div className="relative w-full h-full">
                 <video
-                  src="/videos/powerFeet.mp4"
+                  src="https://res.cloudinary.com/dcy607q9x/video/upload/v1761496800/powerFeet_zzdi3u.mp4"
                   autoPlay
                   muted
                   loop
